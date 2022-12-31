@@ -1,0 +1,6 @@
+rootProject.name = "UWProject"
+include ':app'
+include ':base'
+include ':commom'
+include ':annotations'
+include ':managers'

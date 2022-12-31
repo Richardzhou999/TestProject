@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">中军通信掌厅</string>
+    <string name="sure">sure</string>
+    <string name="binding">Sorry, this account has been bound with Zhongjun card. Please switch to other accounts</string>
+    <string name="card_check">Card number verification is in progress.\n\tPlease wait patiently...</string>
+    <string name="card_activation">Card activation in progress \ nPlease wait patiently</string>
+    <string name="card_select">Entering number selection \ nPlease wait patiently</string>
+    <string name="reminder">reminder</string>
+    <string name="reminder_point">reminder:</string>
+    <string name="login_into">Click login</string>
+    <string name="total_identify_exceptions">SIM card recognition is abnormal. \nPlease replace the card slot and try again</string>
+    <string name="loading">Data loading \nPlease wait...</string>
+    <string name="phone_query">Call fee inquiry</string>
+
+    <!--login -->
+    <string name="hello">HELLO</string>
+    <string name="hello_content">Zhongjun communication handheld business hall serves you</string>
+    <string name="hint_phone">Please enter your mobile number</string>
+    <string name="hint_verification_code">Please enter your Verification Code</string>
+    <string name="hint_password">Please enter the 6-digit service password (the last 6 digits of your ID card)</string>
+    <string name="login">login</string>
+    <string name="login_phone">Mobile number login</string>
+    <string name="login_service">Service password login</string>
+    <string name="forget_password">Forgot your password?</string>
+    <string name="reset_send">Get Verification Code</string>
+    <string name="mobile_empty">Mobile number cannot be empty</string>
+    <string name="mobile_format">The mobile number format is incorrect \nPlease enter the correct mobile number</string>
+    <string name="password_empty">Password cannot be empty</string>
+    <string name="code_empty">Verification code cannot be empty</string>
+
+    <!-- recharge -->
+    <string name="recharge">recharge</string>
+    <string name="recharge_amount">Recharge amount</string>
+    <string name="recharge_explain">1. If the number has been in arrears and stopped, please check the amount of arrears, so as to prevent you from using it normally due to insufficient recharge amount.
+        \n2. Please fill in the mobile phone number that needs to be recharged accurately. After the recharge is successful, the call fee cannot be refunded.
+        \n3. Dear users, we will recharge you at the operator according to the platform service fee you pay. The arrival time may be slightly delayed. Please wait patiently. If you have any questions, please call customer service.</string>
+
+    <string name="item_price">%d</string>
+    <string name="item_flow">%d</string>
+    <string name="item_duration">%d</string>
+    <string name="item_minute">minute</string>
+    <string name="item_price_yuan">Selling price%dylan</string>
+    <string name="card_tips">reminder</string>
+
+    <string name="meal_list">Dear customer, the card adaptation package is as follows</string>
+    <string name="meal_explain_point">Supplementary description of package tariff:</string>
+    <string name="meal_explain_content">1. Customers of 2/3g unlimited package and 4G king of heart package must cancel the 2/3g unlimited package and 4G king of heart package before handling the above tariff packages (for details, please inquire 10086). After handling the new package, the suspended old package cannot be restored.
+        \n2. The traffic contained in the above package is domestic general traffic (excluding Hong Kong, Macao and Taiwan), which can be shared with universal sub card or aurora broadband sub number; The voice included is the number of minutes of domestic voice calls (excluding videophone), and the package is free of charge for caller ID function.
+        \n3. Broadband and 4K TV services included in the package need to be handled separately. ① Handle broadband: directly click here to handle > >; ② Notice for broadband users: if you have handled home broadband service, please adjust the broadband rate in the service hall before the end of the month after the package is changed;
+        \n4. Please download and login the 40g and color cloud space rights (20g personal cloud + 20g home cloud) contained in the package and use it with the color cloud client.</string>
+
+    <string name="tariff_description">Tariff Description:</string>
+    <string name="tariff_content">1. The prepaid fee is the card opening and recharging fee of the current month; \N2. The accounting method is to recharge the balance according to the remaining days of the month;</string>
+
+
+    <string name="meal_detail">Package details</string>
+    <string name="payment_detail">Payment details</string>
+    <string name="monthly_rent_prepayment">Monthly rent prepayment</string>
+    <string name="daily_deduction">Daily deduction</string>
+    <string name="total_payment">Total payment</string>
+
+    <string name="agree">I have read and agree to the above details</string>
+    <string name="handle_immediately">Handle immediately</string>
+
+    <string name="meal_youxiang">Premium package</string>
+    <string name="domestic_flow">Domestic flow</string>
+    <string name="domestic_call_duration">Domestic call duration</string>
+
+    <string name="total_explain">Please read the instructions and click "I have read and agree with the above details"</string>
+
+    <string name="yuan">¥%.2f</string>
+    <string name="payment_mode">Payment method</string>
+    <string name="payment_wechat">Wechat payment</string>
+    <string name="payment_alipay">Alipay payment</string>
+    <string name="payment_toast">Sorry \n recharge payment failed, please try again</string>
+    <string name="recharge_title">Recharge</string>
+
+    <string name="customer_service">Customer service hotline</string>
+    <string name="service_agreement">Service agreement and privacy policy</string>
+    <string name="version_information">Version information</string>
+    <string name="mine_phone">Hi ~ welcome to Zhongjun communication handheld business hall \n log in now and experience more functions</string>
+
+    <string name="remaining_phone_charges">Remaining call fee (yuan)</string>
+    <string name="residual_flow">Residual flow</string>
+    <string name="residual_voice">Voice remaining (minutes)</string>
+
+    <string name="activation">activation</string>
+    <string name="activation_back">Exit activation</string>
+    <string name="activation_success">Activation succeeded！</string>
+    <string name="activation_success_phone">Hello, your card number%s has been activated successfully. For more business processing, please call 4008631678 or log in to Zhongjun wallet app: dwz.cn/zxsnaxdf.</string>
+    <string name="activation_error">Activation failed, please contact the mobile phone manufacturer!</string>
+    <string name="txt_card_tips">1. After the card is successfully opened, we will notify you by SMS; \n2. If your card number has not been used normally after activation, please try to restart your mobile phone; \n3. If you have any other questions, please contact the customer service hotline: 4008631678</string>
+
+    <string name="service_agreement_privacy_policy">Service agreement and privacy policy</string>
+    <string name="customer_service_agreement">Customer service agreement</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="network_access_service_agreement">Zhongjun card customer network access service agreement</string>
+
+
+</resources>

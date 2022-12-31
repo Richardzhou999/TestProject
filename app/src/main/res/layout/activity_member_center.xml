@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/meal_bg"
+    >
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/activity_base"/>
+
+    <ImageView
+        android:id="@+id/loading"
+        android:layout_width="240dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_200dp"/>
+
+    <TextView
+        android:id="@+id/txt_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loading"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="@dimen/sp_16"
+        android:textColor="@color/grey_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/loading"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_member"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_member"
+                android:scaleType="fitXY"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/txt_remaining_charges"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="168.00"
+                android:textSize="@dimen/sp_24"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/margin_35dp"
+                android:layout_marginStart="@dimen/margin_30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/remaining_phone_charges"
+                android:textColor="@color/white"
+                android:layout_marginStart="@dimen/margin_20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_remaining_charges"/>
+
+            <TextView
+                android:id="@+id/txt_residual_flow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="10.00G"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_24"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/margin_35dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/residual_flow"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_residual_flow"/>
+
+            <TextView
+                android:id="@+id/txt_residual_voice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="450.00"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_24"
+                android:layout_marginTop="@dimen/margin_35dp"
+                android:layout_marginEnd="@dimen/margin_50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/residual_voice"
+                android:textColor="@color/white"
+                android:layout_marginEnd="@dimen/margin_8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_residual_voice"/>
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_member"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_120dp"
+                android:paddingStart="@dimen/margin_10dp"
+                android:paddingEnd="@dimen/margin_10dp"
+                android:paddingBottom="@dimen/margin_50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

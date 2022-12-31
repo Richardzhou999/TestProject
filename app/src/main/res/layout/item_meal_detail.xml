@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/item_meal_detail"
+    android:paddingStart="@dimen/margin_12dp"
+    android:paddingEnd="@dimen/margin_12dp"
+    android:paddingTop="@dimen/margin_20dp"
+    android:paddingBottom="@dimen/margin_20dp"
+    android:layout_marginTop="@dimen/margin_10dp">
+
+    <TextView
+        android:id="@+id/meal_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/grey_text"
+        android:layout_marginStart="@dimen/margin_10dp"
+        android:textSize="@dimen/sp_24"
+        android:textStyle="bold"
+        tools:text="39"/>
+
+    <TextView
+        android:id="@+id/tv_meal_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/meal_price"
+        app:layout_constraintBottom_toBottomOf="@id/meal_price"
+        android:layout_marginStart="@dimen/margin_3dp"
+        android:layout_marginBottom="@dimen/margin_3dp"
+        android:textColor="@color/grey_text"
+        android:textSize="@dimen/sp_14"
+        android:text="元"/>
+
+    <TextView
+        android:id="@+id/txt_meal_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/meal_price"
+        android:textColor="@color/grey_text"
+        android:textSize="@dimen/sp_14"
+        android:layout_marginTop="@dimen/margin_3dp"
+        android:text="@string/meal_youxiang"/>
+
+    <TextView
+        android:id="@+id/domestic_flow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="200"
+        android:textStyle="bold"
+        android:textColor="@color/grey_text"
+        android:textSize="@dimen/sp_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/margin_40dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_domestic_flow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GB"
+        android:textColor="@color/grey_text"
+        android:textSize="@dimen/sp_14"
+        android:layout_marginStart="@dimen/margin_3dp"
+        android:layout_marginBottom="@dimen/margin_3dp"
+
+        app:layout_constraintStart_toEndOf="@id/domestic_flow"
+        app:layout_constraintBottom_toBottomOf="@id/domestic_flow"/>
+
+    <TextView
+        android:id="@+id/txt_domestic_flow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/domestic_flow"
+        android:textColor="@color/grey_text"
+        android:textSize="@dimen/sp_14"
+        android:layout_marginTop="@dimen/margin_3dp"
+        android:layout_marginEnd="@dimen/margin_25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/domestic_flow"/>
+
+    <TextView
+    android:id="@+id/domestic_call_duration"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:text="1200"
+    android:textStyle="bold"
+    android:textColor="@color/grey_text"
+    android:textSize="@dimen/sp_24"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toStartOf="@id/tv_domestic_call_duration"/>
+
+    <TextView
+        android:id="@+id/tv_domestic_call_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="分钟"
+        android:textColor="@color/grey_text"
+        android:textSize="@dimen/sp_14"
+        android:layout_marginBottom="@dimen/margin_3dp"
+        app:layout_constraintBottom_toBottomOf="@id/domestic_call_duration"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/txt_domestic_call_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/domestic_call_duration"
+        android:textColor="@color/grey_text"
+        android:textSize="@dimen/sp_14"
+        android:layout_marginTop="@dimen/margin_3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/domestic_flow"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

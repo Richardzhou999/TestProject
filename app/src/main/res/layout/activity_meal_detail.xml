@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/meal_bg"
+    android:orientation="vertical"
+    >
+
+    <include android:id="@+id/toolbar" layout="@layout/activity_base"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <ScrollView
+            android:id="@+id/ll_meal_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:overScrollMode="never">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="@dimen/margin_10dp"
+                android:layout_marginEnd="@dimen/margin_10dp">
+
+                <ImageView
+                    android:id="@+id/icon_meal_process"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:src="@mipmap/icon_meal_process"
+                    android:background="@drawable/bg_recharge"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_meal_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:background="@drawable/bg_recharge"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:paddingStart="@dimen/margin_10dp"
+                    android:paddingEnd="@dimen/margin_10dp"
+                    android:paddingTop="@dimen/margin_15dp"
+                    android:paddingBottom="@dimen/margin_25dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/icon_left"
+                        android:layout_marginEnd="@dimen/margin_12dp"
+                        app:layout_constraintEnd_toStartOf="@id/meal_list"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/meal_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/meal_list"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/icon_right"
+                        android:layout_marginStart="@dimen/margin_12dp"
+                        app:layout_constraintStart_toEndOf="@id/meal_list"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_meal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_14dp"
+                        android:scrollbars="none"
+                        android:overScrollMode="never"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/meal_list"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sp_15"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_black"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    android:text="@string/meal_explain_point"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sp_13"
+                    android:textColor="@color/text_black"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:text="@string/meal_explain_content"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_200dp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="@dimen/margin_20dp"
+        android:layout_marginStart="@dimen/margin_10dp"
+        android:layout_marginEnd="@dimen/margin_10dp"
+        android:background="@drawable/bg_meal_detail_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/btn_agree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_10dp"
+            android:layout_marginStart="@dimen/margin_15dp"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_agree_check"
+                />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/network_access_service_agreement"
+            android:textSize="@dimen/sp_11"
+            android:textColor="@color/white"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/bg_agreement"
+            android:layout_marginStart="@dimen/margin_50dp"/>
+
+        <TextView
+            android:id="@+id/handle_immediately"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="right"
+            android:text="@string/handle_immediately"
+            android:textColor="@color/white"
+            android:paddingStart="@dimen/margin_45dp"
+            android:paddingEnd="@dimen/margin_45dp"
+            android:background="@drawable/bg_handle_immediately_btn"/>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

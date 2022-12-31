@@ -1,0 +1,29 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.UweiCardProject" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+
+        <!-- Customize your theme here. -->
+    </style>
+
+
+
+    <style name="bottomBtn" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/sure_text</item>
+        <item name="android:textColorSecondary">@color/grey_999999</item>
+    </style>
+
+    <style name="MainTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <item name="android:windowBackground">@mipmap/icon_welcome</item>
+    </style>
+
+
+</resources>

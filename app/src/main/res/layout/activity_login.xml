@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.login.LoginActivity">
+
+    <TextView
+        android:id="@+id/service_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello"
+        android:textSize="@dimen/sp_16"
+        android:textColor="@color/text_black_2"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_50dp" />
+
+    <ImageView
+        android:id="@+id/icon_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_login"
+        android:layout_marginTop="@dimen/sp_10"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/hello_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_content"
+        android:layout_marginTop="@dimen/margin_15dp"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <EditText
+        android:id="@+id/login_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/icon_phone_number"
+        android:drawablePadding="@dimen/margin_10dp"
+        android:hint="@string/hint_phone"
+        android:layout_marginStart="@dimen/margin_20dp"
+        android:layout_marginEnd="@dimen/margin_20dp"
+        android:layout_marginTop="@dimen/margin_24dp"
+        android:paddingTop="@dimen/margin_15dp"
+        android:paddingBottom="@dimen/margin_15dp"
+        android:paddingStart="@dimen/margin_23dp"
+        android:inputType="phone"
+        android:text="16710388033"
+        android:background="@drawable/bg_login_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hello_content"/>
+
+
+    <include
+        android:id="@+id/ll_login_service"
+        layout="@layout/activity_login_service"
+        android:visibility="gone"/>
+    <include
+        android:id="@+id/ll_login_phone"
+        layout="@layout/activity_login_phone"
+        android:visibility="visible" />
+
+</LinearLayout>

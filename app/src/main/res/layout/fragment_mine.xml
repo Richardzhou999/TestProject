@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/meal_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.mine.MineFragment">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_mine_bg"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/txt_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mine_phone"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="@dimen/sp_18"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/margin_64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/mine_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textColor="@color/mine_login"
+        android:paddingTop="@dimen/margin_10dp"
+        android:paddingBottom="@dimen/margin_10dp"
+        android:paddingStart="@dimen/margin_30dp"
+        android:paddingEnd="@dimen/margin_30dp"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:background="@drawable/bg_login_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_phone"/>
+
+    <TextView
+        android:id="@+id/txt_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="广东/深圳"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_15"
+        android:layout_marginTop="@dimen/margin_10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_phone"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_ccc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_recharge"
+        android:layout_marginStart="@dimen/margin_10dp"
+        android:layout_marginEnd="@dimen/margin_10dp"
+        android:layout_marginTop="@dimen/margin_60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_phone">
+
+        <ImageView
+            android:id="@+id/icon_customer_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_customer_service"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingTop="@dimen/margin_20dp"
+            android:layout_marginStart="@dimen/margin_10dp"
+            android:paddingBottom="@dimen/margin_20dp"/>
+
+        <TextView
+            android:id="@+id/tv_customer_service"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/customer_service"
+            app:layout_constraintStart_toEndOf="@id/icon_customer_service"
+            app:layout_constraintEnd_toStartOf="@id/into_customer_service"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/margin_15dp"
+            android:paddingTop="@dimen/margin_20dp"
+            android:paddingBottom="@dimen/margin_20dp"/>
+
+        <ImageView
+            android:id="@+id/into_customer_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_into"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="@dimen/margin_20dp"/>
+
+        <View
+            android:id="@+id/line_customer_service"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_0.5dp"
+            android:background="@color/line_dddd"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icon_customer_service" />
+
+        <ImageView
+            android:id="@+id/icon_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_agreement"
+            android:paddingTop="@dimen/margin_20dp"
+            android:paddingBottom="@dimen/margin_20dp"
+            android:layout_marginStart="@dimen/margin_10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line_customer_service"/>
+
+        <TextView
+            android:id="@+id/tv_agreement"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/service_agreement"
+            app:layout_constraintStart_toEndOf="@id/icon_agreement"
+            app:layout_constraintEnd_toStartOf="@id/into_agreement"
+            android:layout_marginStart="@dimen/margin_10dp"
+            android:paddingTop="@dimen/margin_20dp"
+            android:paddingBottom="@dimen/margin_20dp"
+            app:layout_constraintTop_toBottomOf="@id/line_customer_service"/>
+
+        <ImageView
+            android:id="@+id/into_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_into"
+            android:padding="@dimen/margin_20dp"
+            app:layout_constraintTop_toBottomOf="@id/line_customer_service"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+            android:id="@+id/line_agreement"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_0.5dp"
+            android:background="@color/line_dddd"
+            app:layout_constraintTop_toBottomOf="@id/icon_agreement"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageView
+            android:id="@+id/icon_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_version"
+            android:paddingTop="@dimen/margin_20dp"
+            android:paddingBottom="@dimen/margin_20dp"
+            android:layout_marginStart="@dimen/margin_10dp"
+            app:layout_constraintTop_toBottomOf="@id/line_agreement"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/version_information"
+            android:paddingTop="@dimen/margin_20dp"
+            android:paddingBottom="@dimen/margin_20dp"
+            android:layout_marginStart="@dimen/margin_10dp"
+            app:layout_constraintStart_toEndOf="@id/icon_version"
+            app:layout_constraintTop_toBottomOf="@id/line_agreement"/>
+
+        <TextView
+            android:id="@+id/txt_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="V1.0.1"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line_agreement"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/btn_mine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textColor="@color/mine_login"
+        android:paddingTop="@dimen/margin_10dp"
+        android:paddingBottom="@dimen/margin_10dp"
+        android:paddingStart="@dimen/margin_30dp"
+        android:paddingEnd="@dimen/margin_30dp"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:background="@drawable/bg_login_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_ccc"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_mine_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_mine"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

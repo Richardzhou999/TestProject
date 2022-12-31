@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/recharge_bg"
+    android:orientation="vertical"
+    >
+
+    <include android:id="@+id/toolbar" layout="@layout/activity_base"/>
+
+    <ImageView
+        android:id="@+id/loading"
+        android:layout_width="240dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/txt_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loading"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="@dimen/sp_16"
+        android:textColor="@color/grey_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/loading"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <ScrollView
+            android:id="@+id/ll_recharge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/recharge_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_phone"
+                    android:drawablePadding="@dimen/margin_10dp"
+                    android:hint="@string/hint_phone"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    android:layout_marginEnd="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:paddingTop="@dimen/margin_15dp"
+                    android:paddingBottom="@dimen/margin_15dp"
+                    android:paddingStart="@dimen/margin_10dp"
+                    android:inputType="phone"
+                    android:background="@drawable/bg_recharge"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    android:layout_marginEnd="@dimen/margin_10dp"
+
+                    android:paddingEnd="@dimen/margin_10dp"
+                    android:paddingTop="@dimen/margin_12dp"
+                    android:paddingBottom="@dimen/margin_24dp"
+                    android:background="@drawable/bg_recharge"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recharge_amount"
+                        android:textSize="@dimen/sp_15"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:textColor="@color/text_black"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_recharge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_21dp"
+                        android:scrollbars="none"
+                        android:overScrollMode="never"
+                        />
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/ll_payment_mode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:background="@drawable/bg_recharge"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    android:layout_marginEnd="@dimen/margin_10dp"
+                    android:paddingBottom="@dimen/margin_23dp"
+                    android:paddingStart="@dimen/margin_10dp"
+                    android:paddingEnd="@dimen/margin_10dp"
+                    app:layout_constraintTop_toBottomOf="@id/layout_tariff">
+
+                    <TextView
+                        android:id="@+id/payment_mode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/payment_mode"
+                        android:textSize="@dimen/sp_15"
+                        android:textColor="@color/text_black_2"
+                        android:textStyle="bold"
+                        android:layout_marginTop="@dimen/margin_15dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                    <ImageView
+                        android:id="@+id/icon_wechat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/icon_wechat"
+                        android:layout_marginTop="@dimen/margin_20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/payment_mode"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/payment_wechat"
+                        android:layout_marginTop="@dimen/margin_20dp"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        app:layout_constraintStart_toEndOf="@id/icon_wechat"
+                        app:layout_constraintTop_toBottomOf="@id/payment_mode"/>
+
+
+
+
+                    <ImageView
+                        android:id="@+id/icon_alipay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/icon_alipay"
+                        android:layout_marginTop="@dimen/margin_20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/icon_wechat"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/payment_alipay"
+                        android:layout_marginTop="@dimen/margin_20dp"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        app:layout_constraintStart_toEndOf="@id/icon_alipay"
+                        app:layout_constraintTop_toBottomOf="@id/icon_wechat"/>
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup_mode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/payment_mode"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <RadioButton
+                            android:id="@+id/radioButton_wechat"
+                            android:layout_width="@dimen/margin_18dp"
+                            android:layout_height="@dimen/margin_18dp"
+                            android:checked="true"
+                            android:button="@null"
+                            android:layout_marginTop="@dimen/margin_20dp"
+                            android:background="@drawable/bg_payment_btn"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radioButton_alipay"
+                            android:layout_width="@dimen/margin_18dp"
+                            android:layout_height="@dimen/margin_18dp"
+                            android:checked="false"
+                            android:button="@null"
+                            android:layout_marginTop="@dimen/margin_20dp"
+                            android:background="@drawable/bg_payment_btn"
+                            />
+                    </RadioGroup>
+
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/reminder_point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reminder_point"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/sp_15"
+                    android:textColor="@color/text_black"
+                    android:layout_marginTop="@dimen/margin_26dp"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sp_13"
+                    android:text="@string/recharge_explain"
+                    android:textColor="@color/text_black"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    android:layout_marginEnd="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_200dp" />
+
+
+            </LinearLayout>
+
+
+
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/recharge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/recharge"
+        android:textStyle="bold"
+        android:textSize="@dimen/sp_16"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textColor="@color/white"
+        android:layout_marginStart="@dimen/margin_10dp"
+        android:layout_marginEnd="@dimen/margin_10dp"
+        android:layout_marginTop="@dimen/margin_50dp"
+        android:layout_marginBottom="@dimen/margin_25dp"
+        android:paddingTop="@dimen/margin_15dp"
+        android:paddingBottom="@dimen/margin_15dp"
+        android:background="@drawable/bg_login_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_recharge"
+    android:layout_width="100dp"
+    android:layout_height="@dimen/margin_71dp"
+    android:background="@drawable/bg_item_recharge"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="@dimen/margin_15dp"
+    android:layout_marginStart="@dimen/margin_10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:id="@+id/item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="3元"
+        android:textSize="@dimen/sp_20"
+        android:textColor="@color/orange_5d46"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/margin_14dp"
+       />
+
+    <TextView
+        android:id="@+id/item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="售价3元"
+        android:textSize="@dimen/sp_12"
+        android:layout_marginTop="@dimen/margin_2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_title" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

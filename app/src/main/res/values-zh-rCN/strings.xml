@@ -1,0 +1,100 @@
+<resources>
+
+    <string name="app_name">中军通信掌厅</string>
+    <string name="binding">抱歉，该账号已绑定过中军卡，请切换登录其他账号</string>
+    <string name="card_check">正在进行号卡校验 \n请耐心等待…</string>
+    <string name="card_activation">正在进行号卡激活 \n请耐心等待…</string>
+    <string name="card_select">正在进入号码选择 \n请耐心等待…</string>
+    <string name="sure">确定</string>
+    <string name="login_into">点击登录</string>
+    <string name="loading">数据加载中\n请稍后...</string>
+    <!-- dialog -->
+    <string name="reminder">温馨提示</string>
+    <string name="total_identify_exceptions">SIM卡识别异常 \n请更换卡槽再次尝试</string>
+
+    <string name="phone_query">话费查询</string>
+
+    <!--login -->
+    <string name="hello">您好！</string>
+    <string name="hello_content">中军通信掌上营业厅为您服务</string>
+    <string name="hint_phone">请输入手机号码</string>
+    <string name="hint_verification_code">请输入验证码</string>
+    <string name="hint_password">请输入6位服务密码(身份证后6位)</string>
+    <string name="login">登录</string>
+    <string name="login_phone">手机号登录</string>
+    <string name="login_service">服务密码登录</string>
+    <string name="forget_password">忘记密码?</string>
+    <string name="reset_send">获取验证码</string>
+    <string name="mobile_empty">手机号码不能为空</string>
+    <string name="mobile_format">手机号码格式不正确\n请输入正确的手机号码</string>
+    <string name="password_empty">密码不能为空</string>
+    <string name="code_empty">验证码不能为空</string>
+
+    <!-- recharge -->
+    <string name="recharge">充值</string>
+    <string name="recharge_amount">充值金额</string>
+    <string name="reminder_point">温馨提示:</string>
+    <string name="recharge_explain">1、号码若已欠费停机请查询欠费金额，以免充值金额不足导致您不能正常使用。\n2、请准确填写需要充值的手机号码，充值成功后，话费无法退还。\n3、尊敬的用户，我们将依据您支付的平台服务费在运营商为您充值。到账时间可能稍有延迟，请您耐心等待，如有问题请致电客服电话。</string>
+
+    <string name="item_price">%d</string>
+    <string name="item_flow">%d</string>
+    <string name="item_duration">%d</string>
+    <string name="item_minute">分钟</string>
+    <string name="item_price_yuan">售价%d元</string>
+
+    <string name="meal_list">尊敬的客户·该卡适配套餐如下</string>
+    <string name="meal_explain_point">套餐资费的补充说明：</string>
+    <string name="meal_explain_content">1、2/3G不限量套餐、4G随心王套餐客户须取消2/3G不限量套餐、4G随心王套餐后，方可办理以上资费套餐（详询10086），办理新套餐后无法恢复已停办的旧套餐。
+        \n2、以上套餐所含流量为国内通用流量（不含中国港澳台地区），可共享给万能副卡或极光宽带副号使用；所含语音为国内拨打国内语音通话分钟数（不含可视电话），套餐减免来电显示功能费用。
+        \n3、套餐内所含的宽带及4K电视服务需另外办理。 ① 办理宽带：直接点击此处去办理>>； ② 已安装宽带用户须知：如您已办理家宽业务，套餐更改后请于月底前到服务厅调整宽带速率；
+        \n4、套餐内所含的40G和彩云空间权益（20G个人云+20G家庭云）请下载和登录和彩云客户端使用。</string>
+
+    <string name="tariff_description">资费说明：</string>
+    <string name="tariff_content">1、预付费为当月开卡充值费用;\n2、核算方式按照当月剩余天数充值到余额;</string>
+
+    <string name="meal_detail">套餐详情</string>
+    <string name="payment_detail">付款详情</string>
+    <string name="monthly_rent_prepayment">月租预付费</string>
+    <string name="daily_deduction">按天减免</string>
+    <string name="total_payment">支付总额</string>
+
+    <string name="agree">我已阅读并同意以上详情</string>
+    <string name="handle_immediately">立即办理</string>
+    <string name="card_tips">温馨提示</string>
+
+    <string name="meal_youxiang">优享套餐</string>
+    <string name="domestic_flow">国内流量</string>
+    <string name="domestic_call_duration">国内通话时长</string>
+
+    <string name="total_explain">请阅读说明后点“我已阅读并同意以上详情”</string>
+
+    <string name="yuan">¥%.2f</string>
+    <string name="payment_mode">支付方式</string>
+    <string name="payment_wechat">微信支付</string>
+    <string name="payment_alipay">支付宝支付</string>
+    <string name="payment_toast">抱歉\n充值缴费失败，请重试</string>
+
+    <string name="recharge_title">充值</string>
+
+    <string name="customer_service">客服热线</string>
+    <string name="service_agreement">服务协议及隐私政策</string>
+    <string name="version_information">版本信息</string>
+    <string name="mine_phone">Hi～欢迎使用中军通信掌上营业厅\n立即登录，体验更多功能</string>
+
+    <string name="remaining_phone_charges">剩余话费（元）</string>
+    <string name="residual_flow">剩余流量</string>
+    <string name="residual_voice">剩余语音（分钟）</string>
+
+    <string name="activation">激活</string>
+    <string name="activation_back">退出激活</string>
+    <string name="activation_success">激活成功</string>
+    <string name="activation_success_phone">您好，您的卡号%s已激活成功\n更多业务办理，请拨打4008631678\n或登录中军通信掌厅APP查询。</string>
+    <string name="activation_error">激活失败\n请联系手机厂商</string>
+    <string name="txt_card_tips">1.开卡成功后我们将以短信的方式通知您; \n2.若您的卡号激活后一直未能正常使用，请尝试重启手机; \n3.如有其他问题请联系客服电话:4008631678</string>
+
+    <string name="service_agreement_privacy_policy">服务协议及隐私政策</string>
+    <string name="customer_service_agreement">客户服务协议</string>
+    <string name="privacy_policy">隐私政策</string>
+    <string name="network_access_service_agreement">中军卡客户入网服务协议</string>
+
+</resources>

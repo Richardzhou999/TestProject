@@ -1,0 +1,61 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+ext{
+
+    android = [
+            compileSdkVersion : 29,
+            buildToolsVersion : "29.1.1",
+            minSdkVersion : 23,
+            targetSdkVersion : 29,
+            versionCode : 1,
+            versionName : "1.0.3",
+            //高斯模糊
+            renderscriptTargetApi : 21
+    ]
+
+    version = [
+            appcompatVersion : "1.3.0",
+            designVersion : "1.4.0",
+            okhttpVersion : "3.9.0",
+            gson: "2.8.2",
+            retrofitVersion : "2.9.0",
+            rxjava2: "2.2.21",
+            rxjava3: "3.1.5",
+            rxAndroid: "3.0.0",
+            rxlife: "2.1.0",
+            rxcache: "1.8.3-2.x",
+            glideVersion : "4.12.0",
+            fragmentationVersion : "1.1.9",
+    ]
+
+    dependencies = [
+            //base
+            "appcompat-v7" : "androidx.appcompat:appcompat:${version["appcompatVersion"]}",
+            "material" : "com.google.android.material:material:${version["designVersion"]}",
+            "constraint-layout" : "androidx.constraintlayout:constraintlayout:2.0.4",
+
+            //rx
+            "gson" : "com.google.code.gson:gson:2.8.2",
+            "okhttp" : "com.squareup.okhttp3:okhttp:${version["okhttpVersion"]}",
+            "logging-interceptor" : "com.squareup.okhttp3:logging-interceptor:${version["okhttpVersion"]}",
+            "retrofit" : "com.squareup.retrofit2:retrofit:${version["retrofitVersion"]}",
+            "converter-gson" : "com.squareup.retrofit2:converter-gson:${version["retrofitVersion"]}",
+            "converter-xml" : "com.squareup.retrofit2:converter-simplexml:${version["retrofitVersion"]}",
+            "rxjava2" : "io.reactivex.rxjava2:rxjava:${version["rxjava2"]}",
+            "rxjava3" : "io.reactivex.rxjava3:rxjava:${version["rxjava3"]}",
+            "rxAndroid" : "io.reactivex.rxjava3:rxandroid:${version["rxAndroid"]}",
+            "adapter-rxjava" : "com.squareup.retrofit2:adapter-rxjava2:${version["retrofitVersion"]}",
+            "adapter-rxjava3" : "com.squareup.retrofit2:adapter-rxjava3:${version["retrofitVersion"]}",
+            "rxlife": "com.rxjava.rxlife:rxlife-x:${version["rxlife"]}",
+            "rxcache": "com.github.VictorAlbertos.RxCache:runtime:${version["rxcache"]}",
+            
+            //di
+            "javax_annotation" : "org.glassfish:javax.annotation:10.0-b28",
+
+            //glide
+            "glide":"com.github.bumptech.glide:glide:${version["glideVersion"]}"
+
+
+    ]
+
+
+}

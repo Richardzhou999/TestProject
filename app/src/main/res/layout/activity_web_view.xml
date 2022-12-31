@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_base"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_0.5dp"
+        android:background="@color/line_grey"/>
+
+    <com.tencent.smtt.sdk.WebView
+        android:id="@+id/forum_context"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
