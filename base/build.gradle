@@ -28,6 +28,11 @@ android {
     buildFeatures{
         viewBinding true
     }
+
+    dataBinding {
+        enabled = true
+    }
+
 }
 
 dependencies {
@@ -36,7 +41,8 @@ dependencies {
     implementation rootProject.ext.dependencies["appcompat-v7"]
     implementation rootProject.ext.dependencies["material"]
     implementation rootProject.ext.dependencies["constraint-layout"]
-    implementation implementation(project(':managers',))
+    api rootProject.ext.dependencies["lifecycle"]
+    implementation project(':managers')
 
     //沉浸式栏
     api 'com.jaeger.statusbarutil:library:1.5.1'

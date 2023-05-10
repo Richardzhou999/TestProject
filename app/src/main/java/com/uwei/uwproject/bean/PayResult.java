@@ -2,6 +2,8 @@ package com.uwei.uwproject.bean;
 
 import android.text.TextUtils;
 
+import androidx.databinding.BaseObservable;
+
 import java.util.Map;
 
 /**

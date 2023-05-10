@@ -1,7 +1,7 @@
 package com.uwei.commom.rx
 
 import android.accounts.NetworkErrorException
-import com.uwei.commom.network.BasicResponse
+import com.uwei.manager.BasicResponse
 import org.reactivestreams.Subscriber
 import org.reactivestreams.Subscription
 import java.net.ConnectException
@@ -20,11 +20,8 @@ abstract class RxBaseCallBack<T> : Subscriber<BasicResponse<T>> {
     }
 
     override fun onNext(response: BasicResponse<T>) {
-        if(response.success){
+        if(response.isSuccess()){
             response.data?.let {
-                onSuccess(it)
-            }
-            response.result?.let {
                 onSuccess(it)
             }
         }else{

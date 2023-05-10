@@ -10,7 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-import com.uwei.uwproject.view.login.LoginActivity;
+import com.uwei.uwproject.view.login.mvp.LoginActivity;
+import com.uwei.uwproject.view.login.mvvm.Login2Activity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -27,7 +28,7 @@ public class SplashActivity extends AppCompatActivity {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this, PERMISSIONS_STORAGE, 123);
             }else {
-                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                Intent intent = new Intent(SplashActivity.this, Login2Activity.class);
                 startActivity(intent);
                 finish();
             }

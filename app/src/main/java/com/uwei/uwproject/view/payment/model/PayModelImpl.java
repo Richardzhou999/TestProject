@@ -1,12 +1,8 @@
 package com.uwei.uwproject.view.payment.model;
 
-import androidx.annotation.NonNull;
-
 import com.google.gson.Gson;
 
 import com.uwei.base.mvp.BaseModel;
-import com.uwei.commom.network.BasicResponse;
-import com.uwei.commom.rx.DefaultBackCallBack;
 import com.uwei.commom.utils.SharedPrefUtils;
 import com.uwei.uwproject.base.BaseActivity;
 import com.uwei.uwproject.bean.PaymentBean;

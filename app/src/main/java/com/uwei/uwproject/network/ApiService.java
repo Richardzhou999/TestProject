@@ -1,6 +1,6 @@
 package com.uwei.uwproject.network;
 
-import com.uwei.commom.network.BasicResponse;
+import com.uwei.manager.BasicResponse;
 import com.uwei.uwproject.bean.ActivationBean;
 import com.uwei.uwproject.bean.DetailBean;
 import com.uwei.uwproject.bean.LoginBean;
@@ -12,6 +12,8 @@ import java.math.BigDecimal;
 import java.util.Map;
 
 import io.reactivex.rxjava3.core.Observable;
+import kotlinx.coroutines.flow.Flow;
+import com.uwei.uwproject.bean.UserBean;
 import okhttp3.RequestBody;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
@@ -79,6 +81,14 @@ public interface ApiService {
     @POST("passport/accesstokens?grantType=zjCardVerificationCode")
     Observable<BasicResponse<LoginBean>> login(@Field("cellphone") String cellphone,
                                                @Field("verificationCode") String verificationCode);
+
+    /**
+     * 登录
+     */
+
+    @GET("get/{id}")
+    Flow<BasicResponse<UserBean>> login2(@Path("id") String telPhone);
+
 
 
     /**

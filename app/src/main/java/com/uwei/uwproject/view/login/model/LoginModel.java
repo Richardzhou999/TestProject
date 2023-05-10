@@ -5,7 +5,6 @@ import androidx.lifecycle.LifecycleOwner;
 import com.github.richard.core.EvictDynamicKey;
 import com.github.richard.runtime.rx_cache3.internal.DynamicKey;
 import com.uwei.base.mvp.BaseModel;
-import com.uwei.commom.cache.CacheProviders;
 import com.uwei.commom.rx.DefaultBackCallBack;
 import com.uwei.commom.rx.DefaultDialogCallBack;
 import com.uwei.commom.rx.RxHelper;
@@ -13,7 +12,7 @@ import com.uwei.uwproject.base.CardApplication;
 import com.uwei.uwproject.constant.Constant;
 import com.uwei.uwproject.network.ApiService;
 import com.uwei.uwproject.view.login.LoginCacheProviders;
-import com.uwei.uwproject.view.login.LoginContract;
+import com.uwei.uwproject.view.login.mvp.LoginContract;
 
 
 

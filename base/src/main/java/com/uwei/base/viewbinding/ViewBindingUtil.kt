@@ -56,9 +56,9 @@ object ViewBindingUtil {
         if(superclass != null){
             if (genericSuperclass is ParameterizedType) {
                 genericSuperclass.actualTypeArguments.forEach { type ->
-                    if(type.typeName.contains("Binding")) {
+                    if((type as Class<VB>).name.contains("Binding")) {
                         try {
-                            return block.invoke(type as Class<VB>)
+                            return block.invoke(type)
                         } catch (e: NoSuchMethodException) {
                         } catch (e: ClassCastException) {
                         } catch (e: InvocationTargetException) {
@@ -77,7 +77,7 @@ object ViewBindingUtil {
     }
 
     private fun withGenericBindingClick(genericOwner: Any, root: View?){
-        genericOwner.javaClass.methods?.let { methods ->
+        genericOwner.javaClass.methods.let { methods ->
             for (method in methods) {
                 if(method.isAnnotationPresent(OnClick::class.java)){
                     if(method.genericReturnType != Void.TYPE){

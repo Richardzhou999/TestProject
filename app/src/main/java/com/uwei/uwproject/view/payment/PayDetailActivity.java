@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 
 import com.uwei.commom.utils.AppInfoUtils;
 import com.uwei.commom.utils.ToastUtil;
-import com.uwei.commom.widget.LoadingDialog;
+import com.uwei.manager.widget.LoadingDialog;
 import com.uwei.uwproject.R;
 import com.uwei.uwproject.base.BaseActivity;
 import com.uwei.uwproject.bean.PayDetailBean;

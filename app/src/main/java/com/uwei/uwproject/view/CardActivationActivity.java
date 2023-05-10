@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.uwei.uwproject.R;
-import com.uwei.uwproject.view.login.LoginActivity;
+import com.uwei.uwproject.view.login.mvp.LoginActivity;
 
 public class CardActivationActivity extends AppCompatActivity implements View.OnClickListener {
 

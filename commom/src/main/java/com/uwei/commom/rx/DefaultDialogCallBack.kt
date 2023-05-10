@@ -3,9 +3,9 @@ package com.uwei.commom.rx
 import android.accounts.NetworkErrorException
 import android.content.Context
 import com.uwei.manager.IBaseView
-import com.uwei.commom.network.BasicResponse
 import com.uwei.commom.utils.NetworkUtils
 import com.uwei.commom.utils.ToastUtil
+import com.uwei.manager.BasicResponse
 
 import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.disposables.Disposable
@@ -36,22 +36,16 @@ abstract class DefaultDialogCallBack<T>(): Observer<BasicResponse<T>> {
             d.dispose()
             return
         }
-        view?.showLoadingDialog()
+        view?.showLoading()
     }
 
     override fun onNext(response: BasicResponse<T>) {
-        view?.dismissLoadingDialog()
-        if(response.success){
-            if(response.data == null && response.result == null && response.datas == null){
+        view?.dismissLoading()
+        if(response.isSuccess()){
+            if(response.data == null){
                 onSuccessEmpty()
             }
             response.data?.let {
-                onSuccess(it)
-            }
-            response.result?.let {
-                onSuccess(it)
-            }
-            response.datas?.let {
                 onSuccess(it)
             }
         }else{
@@ -60,7 +54,7 @@ abstract class DefaultDialogCallBack<T>(): Observer<BasicResponse<T>> {
     }
 
     override fun onError(throwable: Throwable) {
-        view?.dismissLoadingDialog()
+        view?.dismissLoading()
         if (throwable is ConnectException ||
                 throwable is TimeoutException ||
                 throwable is NetworkErrorException ||

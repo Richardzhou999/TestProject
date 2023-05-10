@@ -1,10 +1,10 @@
-package com.uwei.uwproject.view.login.presenter;
+package com.uwei.uwproject.view.login.mvp.presenter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.uwei.base.mvp.BasePresenter;
-import com.uwei.commom.network.BasicResponse;
+import com.uwei.manager.BasicResponse;
 import com.uwei.commom.rx.DefaultBackCallBack;
 import com.uwei.commom.rx.DefaultDialogCallBack;
 import com.uwei.commom.utils.CHLog;
@@ -12,7 +12,7 @@ import com.uwei.commom.utils.SharedPrefUtils;
 import com.uwei.commom.utils.ToastUtil;
 import com.uwei.uwproject.base.CardApplication;
 import com.uwei.uwproject.bean.LoginBean;
-import com.uwei.uwproject.view.login.LoginContract;
+import com.uwei.uwproject.view.login.mvp.LoginContract;
 import com.uwei.uwproject.view.login.model.LoginModel;
 
 import java.util.Objects;

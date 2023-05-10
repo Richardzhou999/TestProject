@@ -16,17 +16,13 @@ interface IBaseView {
 
     fun getDialog(): Dialog?
 
-    /*显示loading弹窗*/
-    fun showLoadingDialog() {}
-
-    /*隐藏loading弹窗*/
-    fun dismissLoadingDialog() {}
-
-    /*发生错误时的弹窗*/
-    fun showErrorDialog(content: String?) {}
-
     /*showLoading*/
     fun showLoading() {}
+
+    /*发生错误时的弹窗*/
+    fun showError(content: String?) {}
+
+    fun dismissLoading() {}
 
     /*showContent*/
     fun showContent() {}
@@ -34,13 +30,8 @@ interface IBaseView {
     /*showNoData*/
     fun showNoData() {}
 
-
-
     /*showNoNet*/
     fun showNoNet() {}
-
-    /*showError*/
-    fun showError(content: String?) {}
 
     /*释放dialog资源*/
     fun destroy() {}

@@ -1,4 +1,4 @@
-package com.uwei.commom.widget;
+package com.uwei.manager.widget;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -7,12 +7,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
-
 import androidx.annotation.NonNull;
-
-import com.bumptech.glide.Glide;
-import com.uwei.commom.R;
+import com.uwei.manager.R;
 
 
 /**
@@ -20,15 +16,10 @@ import com.uwei.commom.R;
  * @Date 2022/8/4 13:58
  */
 public class LoadingDialog extends Dialog {
-
-
-
-
     public LoadingDialog(@NonNull Context context) {
         super(context);
 
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,11 +36,6 @@ public class LoadingDialog extends Dialog {
 //                WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
 //        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 //        getWindow().setDimAmount(0f);
-
-
-
-
-
 
     }
 

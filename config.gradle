@@ -17,10 +17,13 @@ ext{
             designVersion : "1.4.0",
             okhttpVersion : "3.9.0",
             gson: "2.8.2",
+            lifecycle: "2.4.1",
+            lifecycleModel: "2.3.1",
             retrofitVersion : "2.9.0",
             rxjava2: "2.2.21",
             rxjava3: "3.1.5",
-            rxAndroid: "3.0.0",
+            rxAndroid2: "2.1.1",
+            rxAndroid3: "3.0.0",
             rxlife: "2.1.0",
             rxcache: "1.8.3-2.x",
             glideVersion : "4.12.0",
@@ -41,13 +44,30 @@ ext{
             "converter-gson" : "com.squareup.retrofit2:converter-gson:${version["retrofitVersion"]}",
             "converter-xml" : "com.squareup.retrofit2:converter-simplexml:${version["retrofitVersion"]}",
             "rxjava2" : "io.reactivex.rxjava2:rxjava:${version["rxjava2"]}",
+            "rxAndroid2" : "io.reactivex.rxjava2:rxandroid:${version["rxAndroid2"]}",
             "rxjava3" : "io.reactivex.rxjava3:rxjava:${version["rxjava3"]}",
-            "rxAndroid" : "io.reactivex.rxjava3:rxandroid:${version["rxAndroid"]}",
+            "rxAndroid3" : "io.reactivex.rxjava3:rxandroid:${version["rxAndroid3"]}",
             "adapter-rxjava" : "com.squareup.retrofit2:adapter-rxjava2:${version["retrofitVersion"]}",
             "adapter-rxjava3" : "com.squareup.retrofit2:adapter-rxjava3:${version["retrofitVersion"]}",
             "rxlife": "com.rxjava.rxlife:rxlife-x:${version["rxlife"]}",
             "rxcache": "com.github.VictorAlbertos.RxCache:runtime:${version["rxcache"]}",
-            
+
+            // Annotation processor（注释处理器）
+            "lifecycle":"androidx.lifecycle:lifecycle-runtime-ktx:${version["lifecycleModel"]}",
+            "lifecycle-annotation":"androidx.lifecycle:lifecycle-compiler:${version["lifecycle"]}",
+            "lifecycle-common":"androidx.lifecycle:lifecycle-common:${version["lifecycle"]}",
+            //lifecycle
+            "lifecycle-viewmodel":"androidx.lifecycle:lifecycle-viewmodel-ktx:${version["lifecycleModel"]}",
+            // LiveData
+            "lifecycle-livedata":"androidx.lifecycle:lifecycle-livedata-ktx:${version["lifecycleModel"]}",
+
+
+            // 为 ViewModel 保存状态模块
+            "lifecycle-viewmodel-savedstate":"androidx.lifecycle:lifecycle-viewmodel-savedstate:${version["lifecycle"]}",
+
+
+
+
             //di
             "javax_annotation" : "org.glassfish:javax.annotation:10.0-b28",
 

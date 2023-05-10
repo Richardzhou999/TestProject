@@ -5,7 +5,8 @@ import androidx.lifecycle.LifecycleOwner
 import com.github.richard.gson.GsonSpeaker
 import com.github.richard.runtime.rx_cache3.RxCache3
 import com.rxjava.rxlife.lifeOnMain
-import com.uwei.commom.network.RetrofitManager.getRetrofit
+import com.uwei.commom.network.RetrofitManager.getRetrofit3
+import com.uwei.commom.network.RetrofitManager.getRetrofitFlow
 import com.uwei.commom.network.rxjava3.RetryWithDelay
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -79,11 +80,14 @@ object RxHelper {
 //        }
     //   }
 
-    fun <T> getApiServer(context: Context, url: String, param: String, clazz: Class<T>): T? {
-        return getRetrofit(context, url,
-            param, true).create(clazz)
-    }
+    fun <T> getApiServer(context: Context, url: String, param: String, clazz: Class<T>): T? =
+         getRetrofit3(context, url, param, true).create(clazz)
+             ?: throw RuntimeException("Api service is null!")
 
+
+    fun <T> getApiServerFlow(context: Context, url: String, param: String, clazz: Class<T>): T =
+       getRetrofitFlow(context, url, param, true).create(clazz)
+           ?: throw RuntimeException("Api service is null!")
 
 
 

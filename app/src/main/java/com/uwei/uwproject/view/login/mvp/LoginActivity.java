@@ -1,4 +1,4 @@
-package com.uwei.uwproject.view.login;
+package com.uwei.uwproject.view.login.mvp;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -19,12 +19,11 @@ import com.uwei.commom.utils.ToastUtil;
 import com.uwei.commom.utils.VerifyCodeTimeDown;
 
 
-import com.uwei.commom.widget.LoadingDialog;
+import com.uwei.manager.widget.LoadingDialog;
 import com.uwei.uwproject.R;
 import com.uwei.uwproject.databinding.ActivityLoginBinding;
 import com.uwei.uwproject.view.MainActivity;
-import com.uwei.uwproject.view.login.presenter.LoginPresenter;
-import com.uwei.uwproject.widget.Loading;
+import com.uwei.uwproject.view.login.mvp.presenter.LoginPresenter;
 
 
 /**
@@ -160,12 +159,12 @@ public class LoginActivity extends UWBaseActivity<ActivityLoginBinding> implemen
     }
 
     @Override
-    public void showLoadingDialog() {
+    public void showLoading() {
         loadingDialog.show();
     }
 
     @Override
-    public void dismissLoadingDialog() {
+    public void dismissLoading() {
         loadingDialog.dismiss();
     }
 
