@@ -1,13 +1,9 @@
 package com.uwei.uwproject.view.login;
 
-import android.app.Dialog;
-import android.content.Intent;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
-
-import androidx.annotation.Nullable;
 
 
 import com.uwei.base.UWBaseActivity;
@@ -17,14 +13,9 @@ import com.uwei.base.viewbinding.OnClick;
 import com.uwei.commom.utils.PhoneUtils;
 import com.uwei.commom.utils.ToastUtil;
 import com.uwei.commom.utils.VerifyCodeTimeDown;
-
-
-import com.uwei.commom.widget.LoadingDialog;
 import com.uwei.uwproject.R;
 import com.uwei.uwproject.databinding.ActivityLoginBinding;
-import com.uwei.uwproject.view.MainActivity;
 import com.uwei.uwproject.view.login.presenter.LoginPresenter;
-import com.uwei.uwproject.widget.Loading;
 
 
 /**
@@ -37,24 +28,15 @@ public class LoginActivity extends UWBaseActivity<ActivityLoginBinding> implemen
 
     @InjectPresenter
     private LoginPresenter presenter;
-    private LoadingDialog loadingDialog = null;
 
     private Object[] value = new Object[5];
 
     @Override
     protected void initData() {
-        loadingDialog = new LoadingDialog(this);
     }
 
     @Override
     protected void initEvent() {
-//        binding.llLoginService.loginServiceBtn.setOnClickListener(this);
-//        binding.llLoginPhone.loginPhoneBtn.setOnClickListener(this);
-//        binding.llLoginPhone.loginModePhone.setOnClickListener(this);
-//        binding.llLoginService.loginModeService.setOnClickListener(this);
-//        binding.llLoginPhone.verifyCode.setOnClickListener(this);
-//        binding.llLoginPhone.loginPhoneForget.setOnClickListener(this);
-//        binding.llLoginService.loginServiceForget.setOnClickListener(this);
         binding.llLoginService.loginPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -134,6 +116,7 @@ public class LoginActivity extends UWBaseActivity<ActivityLoginBinding> implemen
             }
 
             case R.id.login_service_btn:{
+
                 if(PhoneUtils.isMobilPhone(binding.loginNumber.getText().toString())){
 
 
@@ -145,7 +128,7 @@ public class LoginActivity extends UWBaseActivity<ActivityLoginBinding> implemen
                 break;
             }
             case R.id.login_phone_btn:{
-                //dialog.show();
+
                 if(PhoneUtils.isMobilPhone(binding.loginNumber.getText().toString())){
 
                     presenter.login(binding.loginNumber.getText().toString(),
@@ -160,27 +143,9 @@ public class LoginActivity extends UWBaseActivity<ActivityLoginBinding> implemen
     }
 
     @Override
-    public void showLoadingDialog() {
-        loadingDialog.show();
-    }
-
-    @Override
-    public void dismissLoadingDialog() {
-        loadingDialog.dismiss();
-    }
-
-    @Override
     public void intoView(int index,double value) {
-        startActivity(new Intent(LoginActivity.this,MainActivity.class));
+       // startActivity(new Intent(LoginActivity.this,MainActivity.class));
 
-    }
-
-
-
-    @Nullable
-    @Override
-    public Dialog getDialog() {
-        return null;
     }
 
 }

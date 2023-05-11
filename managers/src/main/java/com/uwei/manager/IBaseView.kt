@@ -14,8 +14,6 @@ interface IBaseView {
 
     fun getLifecycleOwner(): LifecycleOwner?
 
-    fun getDialog(): Dialog?
-
     /*显示loading弹窗*/
     fun showLoadingDialog() {}
 
@@ -33,8 +31,6 @@ interface IBaseView {
 
     /*showNoData*/
     fun showNoData() {}
-
-
 
     /*showNoNet*/
     fun showNoNet() {}

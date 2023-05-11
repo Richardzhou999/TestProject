@@ -80,6 +80,13 @@ public interface ApiService {
     Observable<BasicResponse<LoginBean>> login(@Field("cellphone") String cellphone,
                                                @Field("verificationCode") String verificationCode);
 
+    /**
+     * 登录
+     */
+    @Headers({"Content-Type: application/json","Accept: application/json"})
+    @POST("ppr/app/login/pub/login")
+    Observable<BasicResponse<LoginBean>> V2Login(@Body RequestBody body);
+
 
     /**
      * 获取验证码

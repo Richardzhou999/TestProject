@@ -1,13 +1,10 @@
 package com.uwei.commom.utils
 
 import android.content.Context
-import android.widget.TextView
 import android.os.CountDownTimer
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
+import android.widget.TextView
 import androidx.core.content.ContextCompat
-import com.uwei.commom.R
 
 /**
  * @Author Charlie

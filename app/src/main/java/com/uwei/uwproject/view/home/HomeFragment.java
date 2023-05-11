@@ -101,10 +101,4 @@ public class HomeFragment extends UWBaseFragment<FragmentHomeBinding> implements
         }
     }
 
-
-    @Nullable
-    @Override
-    public Dialog getDialog() {
-        return null;
-    }
 }

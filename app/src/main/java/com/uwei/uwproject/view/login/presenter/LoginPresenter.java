@@ -1,5 +1,8 @@
 package com.uwei.uwproject.view.login.presenter;
 
+import android.app.Activity;
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -14,6 +17,7 @@ import com.uwei.uwproject.base.CardApplication;
 import com.uwei.uwproject.bean.LoginBean;
 import com.uwei.uwproject.view.login.LoginContract;
 import com.uwei.uwproject.view.login.model.LoginModel;
+import com.uwei.uwproject.view.payment.presenter.IView;
 
 import java.util.Objects;
 
@@ -26,16 +30,16 @@ public class LoginPresenter extends BasePresenter<LoginContract.LoginView, Login
     @Override
     public void login(String phone, String number) {
 
-        getModel().login(phone,number, new DefaultDialogCallBack<LoginBean>(getView().getViewContext(),getView()) {
+        getModel().login(phone,number, new DefaultDialogCallBack<LoginBean>(mView.getViewContext(),mView) {
             @Override
             public void onSuccessEmpty() {}
             @Override
             public void onSuccess(LoginBean response) {
-                SharedPrefUtils.INSTANCE.put("userId",response.getUserId());
-                SharedPrefUtils.INSTANCE.put("token",response.getAccesstoken());
-                SharedPrefUtils.INSTANCE.put("phone", phone);
-                long time = System.currentTimeMillis() + response.getExpiresIn() * 1000;
-                SharedPrefUtils.INSTANCE.put("tokenTime",time);
+                //SharedPrefUtils.INSTANCE.put("userId",response.getUserId());
+//                SharedPrefUtils.INSTANCE.put("token",response.getAccesstoken());
+//                SharedPrefUtils.INSTANCE.put("phone", phone);
+//                long time = System.currentTimeMillis() + response.getExpiresIn() * 1000;
+//                SharedPrefUtils.INSTANCE.put("tokenTime",time);
                 getView().intoView(0,0);
             }
 

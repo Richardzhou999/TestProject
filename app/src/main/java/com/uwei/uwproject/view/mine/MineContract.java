@@ -2,7 +2,6 @@ package com.uwei.uwproject.view.mine;
 
 import androidx.lifecycle.LifecycleOwner;
 
-import com.uwei.base.mvp.BaseModel;
 import com.uwei.base.mvp.IBasePresenter;
 import com.uwei.commom.rx.DefaultBackCallBack;
 import com.uwei.manager.IBaseView;

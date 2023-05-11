@@ -14,6 +14,7 @@ import androidx.viewbinding.ViewBinding
 import com.uwei.base.mvp.ProxyActivity
 import com.uwei.base.viewbinding.ViewBindingUtil
 import com.uwei.manager.IBaseView
+import com.uwei.manager.LoadView
 
 
 /**
@@ -27,6 +28,7 @@ abstract class UWBaseActivity<VB : ViewBinding>: AppCompatActivity() , IBaseView
 
     lateinit var binding: VB
     private var mProxyActivity: ProxyActivity? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +47,6 @@ abstract class UWBaseActivity<VB : ViewBinding>: AppCompatActivity() , IBaseView
         initData()
         //设置事件
         initEvent()
-
     }
 
     override fun onResume() {
@@ -79,12 +80,10 @@ abstract class UWBaseActivity<VB : ViewBinding>: AppCompatActivity() , IBaseView
      */
     protected abstract fun initEvent()
 
-    fun intoActivity(context: Context,intoActivity: Activity){
-        val intent = Intent(context,intoActivity::class.java);
-        context.startActivity(intent)
+    fun intoActivity(intoActivity: Activity){
+        val intent = Intent(this,intoActivity::class.java);
+        startActivity(intent)
     }
-
-
 
     /**
      * 跳转页面

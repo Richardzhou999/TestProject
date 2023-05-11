@@ -19,7 +19,7 @@ public class Loading extends Dialog {
 
 
     public Loading(@NonNull Context context) {
-        super(context);
+        super(context,R.style.dialog_theme_center_display);
         //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
     }

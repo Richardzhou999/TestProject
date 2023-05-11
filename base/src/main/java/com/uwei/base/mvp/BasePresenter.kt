@@ -2,8 +2,6 @@ package com.uwei.base.mvp
 
 import com.uwei.manager.IBaseView
 import java.lang.ref.SoftReference
-import java.lang.reflect.InvocationHandler
-import java.lang.reflect.Method
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Proxy
 import java.math.BigDecimal
@@ -12,22 +10,22 @@ import java.math.BigDecimal
  * @Author Charlie
  * @Date 2022/8/27 9:43
  */
-abstract class BasePresenter<V: IBaseView,M: BaseModel> : IBasePresenter{
+abstract class BasePresenter<V: IBaseView,M: IBaseModel> : IBasePresenter {
 
     /**
      * 使用软引用的方式让 P 层持有 V 层的引用，并且提供了 getView() 方法给 P 层调用，
      * 父类 View 变量进行私有化，防止子类对其进行更改造成的其他错误。我们的 MainPresenter
-     * 获取 Activity 的引用就可以使用 getView() 方法获得。软引用在内存降到不足的情况下，
-     * GC 就会进行优先回收释放那些以软引用方式引用的对象，一定程度上去避免内存溢出（OOM）
+     * 获取 Activity 的引用就可以使用 getView() 方法获得
      */
     private var mReferenceView: SoftReference<IBaseView>? = null
-    private var mProxyView: V? = null
-    private var mModel: M? = null
+    lateinit var mView: V
+    lateinit var mModel: M
+
 
     override fun attachView(view: IBaseView?) {
         mReferenceView = SoftReference(view)
         //动态代理获取view，做统一处理
-        mProxyView = view?.javaClass?.interfaces?.let { interfaces ->
+        mView = view?.javaClass?.interfaces?.let { interfaces ->
             Proxy.newProxyInstance(view.javaClass.classLoader, interfaces) { proxy, method, args ->
                 if (mReferenceView == null || mReferenceView?.get() == null) {
                     null
@@ -73,21 +71,17 @@ abstract class BasePresenter<V: IBaseView,M: BaseModel> : IBasePresenter{
         }
     }
 
-
-
-    fun getView(): V? {
-        return mProxyView
-    }
-
-    fun getModel(): M? {
-        return mModel
-    }
-
-
-
     override fun detachView() {
         mReferenceView?.clear()
         mReferenceView = null
+    }
+
+    fun getModel(): M {
+        return mModel
+    }
+
+    fun getView(): V {
+        return mView
     }
 
 }

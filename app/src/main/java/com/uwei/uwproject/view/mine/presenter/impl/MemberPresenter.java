@@ -1,7 +1,6 @@
 package com.uwei.uwproject.view.mine.presenter.impl;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LifecycleOwner;
 
 import com.uwei.base.mvp.BasePresenter;
 import com.uwei.commom.network.BasicResponse;
@@ -12,7 +11,7 @@ import com.uwei.uwproject.bean.MemberBean;
 import com.uwei.uwproject.bean.MemberItemBean;
 import com.uwei.uwproject.bean.MemberListBean;
 import com.uwei.uwproject.view.mine.MineContract;
-import com.uwei.uwproject.view.mine.MemberModel;
+import com.uwei.uwproject.view.mine.MemberModelI;
 
 import java.util.ArrayList;
 
@@ -20,7 +19,7 @@ import java.util.ArrayList;
  * @Author Charlie
  * @Date 2022/7/29 16:17
  */
-public class MemberPresenter extends BasePresenter<MineContract.IMemberView, MemberModel> implements MineContract.MemberPresenter {
+public class MemberPresenter extends BasePresenter<MineContract.IMemberView, MemberModelI> implements MineContract.MemberPresenter {
 
     @Override
     public void getUserBean() {

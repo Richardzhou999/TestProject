@@ -6,7 +6,7 @@ import com.uwei.manager.IBaseView
 import com.uwei.commom.network.BasicResponse
 import com.uwei.commom.utils.NetworkUtils
 import com.uwei.commom.utils.ToastUtil
-
+import com.uwei.manager.LoadView
 import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.disposables.Disposable
 import java.net.ConnectException
@@ -17,30 +17,31 @@ import java.util.concurrent.TimeoutException
  * @Author Charlie
  * @Date 2022/8/15 14:24
  */
-abstract class DefaultDialogCallBack<T>(): Observer<BasicResponse<T>> {
+abstract class DefaultDialogCallBack<T>(context: Context,view: IBaseView): Observer<BasicResponse<T>> {
 
     private var mContext: Context? = null
     private var view: IBaseView? = null
-    private val loadingContent = "数据加载中..."
+    private var loadView: LoadView
 
-    constructor(context: Context, view: IBaseView) : this() {
+    init {
         mContext = context
         this.view = view
+        loadView = LoadView(context,"")
     }
 
     override fun onSubscribe(d: Disposable) {
         onStart()
+
         if (!NetworkUtils.isConnected(mContext)) {
-            view?.showNoNet()
             onError(NetworkErrorException("当前无网络，请检查"))
             d.dispose()
             return
         }
-        view?.showLoadingDialog()
+        loadView.show()
     }
 
     override fun onNext(response: BasicResponse<T>) {
-        view?.dismissLoadingDialog()
+        loadView.dismiss()
         if(response.success){
             if(response.data == null && response.result == null && response.datas == null){
                 onSuccessEmpty()
@@ -60,11 +61,11 @@ abstract class DefaultDialogCallBack<T>(): Observer<BasicResponse<T>> {
     }
 
     override fun onError(throwable: Throwable) {
-        view?.dismissLoadingDialog()
+        loadView.dismiss()
         if (throwable is ConnectException ||
-                throwable is TimeoutException ||
-                throwable is NetworkErrorException ||
-                throwable is UnknownHostException) {
+            throwable is TimeoutException ||
+            throwable is NetworkErrorException ||
+            throwable is UnknownHostException) {
             try {
                 ToastUtil.showText(mContext,throwable.message)
                 onFailure(throwable, false)
@@ -81,7 +82,7 @@ abstract class DefaultDialogCallBack<T>(): Observer<BasicResponse<T>> {
     }
 
     override fun onComplete() {
-      
+
     }
 
     /**

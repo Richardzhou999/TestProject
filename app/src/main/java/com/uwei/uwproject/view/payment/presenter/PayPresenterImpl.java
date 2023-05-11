@@ -4,7 +4,7 @@ package com.uwei.uwproject.view.payment.presenter;
 import com.uwei.uwproject.base.BaseActivity;
 import com.uwei.uwproject.view.payment.model.IModel;
 import com.uwei.uwproject.view.payment.model.PayModel;
-import com.uwei.uwproject.view.payment.model.PayModelImpl;
+import com.uwei.uwproject.view.payment.model.PayModelImplI;
 
 /**
  * @Author Charlie
@@ -16,7 +16,7 @@ public class PayPresenterImpl implements PayPresenter, IModel {
     private IView view;
 
     public PayPresenterImpl(BaseActivity activity, IView view) {
-        this.model = new PayModelImpl(activity);
+        this.model = new PayModelImplI(activity);
         this.view = view;
     }
 

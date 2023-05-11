@@ -81,9 +81,7 @@ class MinFragment : UWBaseFragment<FragmentMineBinding>(), MineContract.IMemberV
         }
     }
 
-    override fun getDialog(): Dialog? {
-        return null
-    }
+
 
     override fun loadData(bean: MemberBean, list: ArrayList<MemberListBean>) {
         memberAdapter!!.refresh(list)

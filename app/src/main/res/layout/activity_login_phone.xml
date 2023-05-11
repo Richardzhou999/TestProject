@@ -19,7 +19,7 @@
         android:paddingTop="@dimen/margin_15dp"
         android:paddingBottom="@dimen/margin_15dp"
         android:paddingStart="@dimen/margin_23dp"
-        android:text="888888"
+        android:text="ccl123465"
         android:background="@drawable/bg_login_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>

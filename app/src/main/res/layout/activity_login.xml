@@ -49,7 +49,7 @@
         android:paddingBottom="@dimen/margin_15dp"
         android:paddingStart="@dimen/margin_23dp"
         android:inputType="phone"
-        android:text="16710388033"
+        android:text="13619686216"
         android:background="@drawable/bg_login_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hello_content"/>

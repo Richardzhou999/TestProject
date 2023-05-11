@@ -89,11 +89,7 @@ public class MineFragment extends UWBaseFragment<FragmentMineBinding> implements
         }
     }
 
-    @Nullable
-    @Override
-    public Dialog getDialog() {
-        return null;
-    }
+
 
     @Override
     public void loadData(MemberBean bean, ArrayList<MemberListBean> list) {

@@ -14,6 +14,4 @@ interface IBasePresenter{
     // 解绑
     fun detachView()
 
-
-
 }

@@ -1,4 +1,5 @@
 package com.uwei.commom.utils
+
 import android.util.Log
 import okhttp3.HttpUrl
 import okhttp3.Interceptor
@@ -17,12 +18,12 @@ object InterceptorUtil {
      * 日志拦截器,用于打印返回请求的结果
      */
     fun logInterceptor(): HttpLoggingInterceptor {
-        return HttpLoggingInterceptor {  message ->
+        return HttpLoggingInterceptor { message ->
             try {
-                Log.w("UWLog", "log:${URLDecoder.decode(message,"utf-8")}")
-            }catch (e: UnsupportedEncodingException){
+                Log.w("UWLog", "log:${URLDecoder.decode(message, "utf-8")}")
+            } catch (e: UnsupportedEncodingException) {
                 e.printStackTrace()
-                Log.e("UWLog","error:$message")
+                Log.e("UWLog", "error:$message")
             }
         }.setLevel(HttpLoggingInterceptor.Level.BODY)
     }
@@ -30,13 +31,12 @@ object InterceptorUtil {
     /**
      * 头部添加token
      */
-    fun defaultHeader(name: String?): Interceptor {
+    fun defaultHeader(tokenName: String?, signName: String?): Interceptor {
         return Interceptor { chain ->
             val builder = chain.request().newBuilder()
-            name?.let {
-                val token = SharedPrefUtils["token",""]
-                builder.header(name, token).build()
-            }
+            val token = SharedPrefUtils["token", ""]
+            val sign = SharedPrefUtils["sign", ""]
+            builder.header(tokenName ?: "token", token).header(signName?:"sign", sign)
             chain.proceed(builder.build())
         }
     }
@@ -44,7 +44,10 @@ object InterceptorUtil {
     /**
      * 头部或者公共参数拦截器
      */
-    fun paramInterceptor(headerMap: MutableMap<String,String>?,paramMap: MutableMap<String,Any>?): Interceptor {
+    fun paramInterceptor(
+        headerMap: MutableMap<String, String>?,
+        paramMap: MutableMap<String, Any>?
+    ): Interceptor {
         return Interceptor { chain ->
             val url: HttpUrl = chain.request().url()
             val builder = chain.request().newBuilder()
@@ -52,7 +55,7 @@ object InterceptorUtil {
             //头部添加
             headerMap?.let {
                 for (key in it.keys) {
-                    builder.header(key,it[key])
+                    builder.header(key, it[key])
                 }
             }
 
@@ -60,7 +63,7 @@ object InterceptorUtil {
             paramMap?.let {
                 val urlBuilder = StringBuilder(url.toString())
                 if (url.toString().contains("?")) urlBuilder.append("&") else urlBuilder.append("?")
-                val paramBuilder =  StringBuilder()
+                val paramBuilder = StringBuilder()
                 for (key in it.keys) {
                     paramBuilder.append("&$key=").append(it[key])
                 }

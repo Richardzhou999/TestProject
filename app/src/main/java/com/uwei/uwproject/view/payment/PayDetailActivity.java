@@ -1,6 +1,5 @@
 package com.uwei.uwproject.view.payment;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,7 +13,6 @@ import com.bumptech.glide.Glide;
 
 import com.uwei.commom.utils.AppInfoUtils;
 import com.uwei.commom.utils.ToastUtil;
-import com.uwei.commom.widget.LoadingDialog;
 import com.uwei.uwproject.R;
 import com.uwei.uwproject.base.BaseActivity;
 import com.uwei.uwproject.bean.PayDetailBean;
@@ -37,7 +35,7 @@ public class PayDetailActivity extends BaseActivity implements View.OnClickListe
     private int paymentMode;
     private String productId;
     private double reduction;
-    private LoadingDialog dialog;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -78,7 +76,7 @@ public class PayDetailActivity extends BaseActivity implements View.OnClickListe
             total.setText(getString(R.string.yuan,totalPrice));
         }
         presenter = new PayPresenterImpl(this,this);
-        dialog = new LoadingDialog(PayDetailActivity.this);
+
     }
 
     @Override
@@ -90,17 +88,17 @@ public class PayDetailActivity extends BaseActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
-        dialog.show();
+
         if(paymentMode == 0){
             if(!AppInfoUtils.INSTANCE.isAppInstalled(PayDetailActivity.this,"com.tencent.mm")){
                 ToastUtil.INSTANCE.showText(PayDetailActivity.this,"您当前未安装微信");
-                dialog.dismiss();
+
                 return;
             }
         }else {
             if(!AppInfoUtils.INSTANCE.isAppInstalled(PayDetailActivity.this,"com.eg.android.AlipayGphone")){
                 ToastUtil.INSTANCE.showText(PayDetailActivity.this,"您当前未安装支付宝");
-                dialog.dismiss();
+
                 return;
             }
         }
@@ -111,7 +109,7 @@ public class PayDetailActivity extends BaseActivity implements View.OnClickListe
                     ,payment.getName(),paymentMode);
         }else {
             ToastUtil.INSTANCE.showText(PayDetailActivity.this,"当前金额不能小于1元");
-            dialog.dismiss();
+
         }
 
 
@@ -134,20 +132,16 @@ public class PayDetailActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     public void paySuccess() {
-        dialog.dismiss();
+
     }
 
     @Override
     public void payError(String error) {
-        dialog.dismiss();
+
         ToastUtil.INSTANCE.showText(PayDetailActivity.this,error);
     }
 
 
 
-    @Nullable
-    @Override
-    public Dialog getDialog() {
-        return null;
-    }
+
 }

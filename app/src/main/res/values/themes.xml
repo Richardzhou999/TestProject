@@ -14,7 +14,15 @@
         <!-- Customize your theme here. -->
     </style>
 
-
+    <style name="dialog_theme_center_display" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
 
     <style name="bottomBtn" parent="Theme.AppCompat.Light">
         <item name="colorPrimary">@color/sure_text</item>

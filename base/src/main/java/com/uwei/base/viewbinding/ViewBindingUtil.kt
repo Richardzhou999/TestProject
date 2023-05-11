@@ -20,19 +20,16 @@ object ViewBindingUtil {
 
     private val bindMap: Map<Int, View> = HashMap()
 
-    @RequiresApi(Build.VERSION_CODES.P)
     @JvmStatic
     fun <VB : ViewBinding> inflateWithGeneric(genericOwner: Any, layoutInflater: LayoutInflater): VB =
         withGenericBindingClass<VB>(genericOwner) { clazz ->
             clazz.getMethod("inflate", LayoutInflater::class.java).invoke(null, layoutInflater) as VB
         }
 
-    @RequiresApi(Build.VERSION_CODES.P)
     @JvmStatic
     fun <VB : ViewBinding> inflateWithGeneric(genericOwner: Any, parent: ViewGroup?): VB =
         inflateWithGeneric(genericOwner, LayoutInflater.from(parent?.context), parent, false)
 
-    @RequiresApi(Build.VERSION_CODES.P)
     @JvmStatic
     fun <VB : ViewBinding> inflateWithGeneric(genericOwner: Any, layoutInflater: LayoutInflater,
                                               parent: ViewGroup?, attachToParent: Boolean): VB =
@@ -49,25 +46,27 @@ object ViewBindingUtil {
     fun onViewClick(genericOwner: Any,view: View) =  withGenericBindingClick(genericOwner,view)
 
 
-    @RequiresApi(Build.VERSION_CODES.P)
+
     private fun <VB : ViewBinding> withGenericBindingClass(genericOwner: Any, block: (Class<VB>) -> VB): VB {
         var genericSuperclass = genericOwner.javaClass.genericSuperclass
         var superclass = genericOwner.javaClass.superclass
         if(superclass != null){
-            if (genericSuperclass is ParameterizedType) {
-                genericSuperclass.actualTypeArguments.forEach { type ->
-                    if(type.typeName.contains("Binding")) {
-                        try {
-                            return block.invoke(type as Class<VB>)
-                        } catch (e: NoSuchMethodException) {
-                        } catch (e: ClassCastException) {
-                        } catch (e: InvocationTargetException) {
-                            var tagException: Throwable? = e
-                            while (tagException is InvocationTargetException) {
-                                tagException = e.cause
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P){
+                if (genericSuperclass is ParameterizedType) {
+                    genericSuperclass.actualTypeArguments.forEach { type ->
+                        if(type.typeName.contains("Binding")) {
+                            try {
+                                return block.invoke(type as Class<VB>)
+                            } catch (e: NoSuchMethodException) {
+                            } catch (e: ClassCastException) {
+                            } catch (e: InvocationTargetException) {
+                                var tagException: Throwable? = e
+                                while (tagException is InvocationTargetException) {
+                                    tagException = e.cause
+                                }
+                                throw tagException
+                                    ?: IllegalArgumentException("ViewBinding generic was found, but creation failed.")
                             }
-                            throw tagException
-                                ?: IllegalArgumentException("ViewBinding generic was found, but creation failed.")
                         }
                     }
                 }
