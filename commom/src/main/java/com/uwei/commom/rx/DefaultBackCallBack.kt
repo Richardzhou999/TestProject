@@ -2,8 +2,7 @@ package com.uwei.commom.rx
 
 import android.accounts.NetworkErrorException
 import android.content.Context
-import com.uwei.commom.network.BaseView
-import com.uwei.commom.network.BasicResponse
+import com.uwei.manager.BasicResponse
 import com.uwei.commom.utils.NetworkUtils
 import com.uwei.commom.utils.ToastUtil
 import io.reactivex.rxjava3.core.Observer
@@ -31,17 +30,11 @@ abstract class DefaultBackCallBack<T>(context: Context): Observer<BasicResponse<
 
     override fun onNext(response: BasicResponse<T>) {
 
-        if(response.success){
-            if(response.data == null && response.result == null && response.datas == null){
+        if(response.isSuccess()){
+            if(response.data == null){
                 onSuccessEmpty()
             }
             response.data?.let {
-                onSuccess(it)
-            }
-            response.result?.let {
-                onSuccess(it)
-            }
-            response.datas?.let {
                 onSuccess(it)
             }
         }else{

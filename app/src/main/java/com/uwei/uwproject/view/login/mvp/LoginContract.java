@@ -1,4 +1,4 @@
-package com.uwei.uwproject.view.login;
+package com.uwei.uwproject.view.login.mvp;
 
 import androidx.lifecycle.LifecycleOwner;
 

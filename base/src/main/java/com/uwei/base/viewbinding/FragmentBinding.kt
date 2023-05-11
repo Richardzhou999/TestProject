@@ -16,9 +16,11 @@
 
 package com.uwei.base.viewbinding
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 
 import androidx.viewbinding.ViewBinding
@@ -36,6 +38,7 @@ class FragmentBindingDelegate<VB : ViewBinding> : FragmentBinding<VB> {
   override val binding: VB
     get() = requireNotNull(mBinding) { "The property of binding has been destroyed." }
 
+  @RequiresApi(Build.VERSION_CODES.P)
   override fun Fragment.createViewWithBinding(inflater: LayoutInflater, container: ViewGroup?): View {
     if (mBinding == null) {
       mBinding = ViewBindingUtil.inflateWithGeneric(this, inflater, container, false)

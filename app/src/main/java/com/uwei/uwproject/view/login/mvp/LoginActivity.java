@@ -1,4 +1,4 @@
-package com.uwei.uwproject.view.login;
+package com.uwei.uwproject.view.login.mvp;
 
 import android.text.Editable;
 import android.text.TextUtils;
@@ -15,7 +15,8 @@ import com.uwei.commom.utils.ToastUtil;
 import com.uwei.commom.utils.VerifyCodeTimeDown;
 import com.uwei.uwproject.R;
 import com.uwei.uwproject.databinding.ActivityLoginBinding;
-import com.uwei.uwproject.view.login.presenter.LoginPresenter;
+import com.uwei.uwproject.view.MainActivity;
+import com.uwei.uwproject.view.login.mvp.presenter.LoginPresenter;
 
 
 /**
@@ -116,7 +117,6 @@ public class LoginActivity extends UWBaseActivity<ActivityLoginBinding> implemen
             }
 
             case R.id.login_service_btn:{
-
                 if(PhoneUtils.isMobilPhone(binding.loginNumber.getText().toString())){
 
 
@@ -128,7 +128,6 @@ public class LoginActivity extends UWBaseActivity<ActivityLoginBinding> implemen
                 break;
             }
             case R.id.login_phone_btn:{
-
                 if(PhoneUtils.isMobilPhone(binding.loginNumber.getText().toString())){
 
                     presenter.login(binding.loginNumber.getText().toString(),

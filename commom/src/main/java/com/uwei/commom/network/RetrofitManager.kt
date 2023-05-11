@@ -20,31 +20,11 @@ object RetrofitManager {
     /**
      * 超时时间
      */
-    private const val TIME_OUT = 15
+    const val TIME_OUT = 15
     /**
      * 缓存内存 - 10 MB
      */
-    private const val DEFAULT_DIR_CACHE = 10 * 1024 * 1024;
-
-    fun getRetrofit2(context: Context, url: String,tokenName: String,isCache: Boolean): Retrofit{
-        return Retrofit.Builder()
-            .addConverterFactory(JXConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .baseUrl(url)
-            .client(getOkHttpClient(context,tokenName,null,null,null,isCache))
-            .build()
-    }
-
-    fun getRetrofit3(context: Context,url: String,tokenName: String?,signName: String?,
-                    headerMap: MutableMap<String,String>?,
-                    paramMap: MutableMap<String,Any>?,isCache: Boolean): Retrofit{
-        return Retrofit.Builder()
-                .addConverterFactory(JXConverterFactory.create())
-                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-                .baseUrl(url)
-                .client(getOkHttpClient(context,tokenName,signName,headerMap,paramMap,isCache))
-                .build()
-    }
+    const val DEFAULT_DIR_CACHE = 10 * 1024 * 1024;
 
     /**
      * 默认Okhttp,绑定日志
@@ -69,6 +49,43 @@ object RetrofitManager {
                 .cache(cache)
         }
         return builder.build()
+    }
+
+    fun getRetrofit2(context: Context, url: String,tokenName: String,isCache: Boolean = false): Retrofit{
+        return Retrofit.Builder()
+                .addConverterFactory(JXConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .baseUrl(url)
+                .client(getOkHttpClient(context,tokenName,null,null,isCache))
+                .build()
+    }
+
+    fun getRetrofit3(context: Context, url: String, tokenName: String, isCache: Boolean = false): Retrofit{
+        return Retrofit.Builder()
+            .addConverterFactory(JXConverterFactory.create())
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+            .baseUrl(url)
+            .client(getOkHttpClient(context,tokenName,null,null,isCache))
+            .build()
+    }
+
+    fun getRetrofitFlow(context: Context, url: String, tokenName: String, isCache: Boolean = false): Retrofit{
+        return Retrofit.Builder()
+                .addConverterFactory(JXConverterFactory.create())
+                .addCallAdapterFactory(FlowAdapterFactory.create(true))
+                .baseUrl(url)
+                .client(getOkHttpClient(context,tokenName,null,null,isCache))
+                .build()
+    }
+
+    fun getRetrofit3(context: Context, url: String, headerMap: MutableMap<String,String>?,
+                     paramMap: MutableMap<String,Any>?, isCache: Boolean = false): Retrofit{
+        return Retrofit.Builder()
+                .addConverterFactory(JXConverterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+                .baseUrl(url)
+                .client(getOkHttpClient(context,"",headerMap,paramMap,isCache))
+                .build()
     }
 
 }

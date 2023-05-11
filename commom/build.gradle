@@ -28,18 +28,16 @@ android {
 
 dependencies {
 
-    //net
-    api rootProject.ext.dependencies["gson"]
-    api rootProject.ext.dependencies["retrofit"]
     //implementation rootProject.ext.dependencies["okhttp"]
     api rootProject.ext.dependencies["logging-interceptor"]
 
     //rx
-    api rootProject.ext.dependencies["rxjava2"]
-    api rootProject.ext.dependencies["rxjava3"]
+    implementation rootProject.ext.dependencies["rxjava2"]
+    implementation  rootProject.ext.dependencies["rxjava3"]
     implementation rootProject.ext.dependencies["adapter-rxjava"]
     implementation rootProject.ext.dependencies["adapter-rxjava3"]
-    implementation rootProject.ext.dependencies["rxAndroid"]
+    implementation rootProject.ext.dependencies["rxAndroid2"]
+    implementation  rootProject.ext.dependencies["rxAndroid3"]
     implementation rootProject.ext.dependencies["converter-gson"]
     implementation rootProject.ext.dependencies["converter-xml"]
     api 'com.github.liujingxing.rxlife:rxlife-rxjava3:2.2.2'
@@ -49,7 +47,7 @@ dependencies {
 
     //glide
     api rootProject.ext.dependencies["glide"]
-    implementation implementation(project(':managers',))
+    implementation implementation(project(':managers'))
 
 
     // 微信open sdk

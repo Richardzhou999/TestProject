@@ -19,7 +19,7 @@ import com.uwei.uwproject.bean.MemberBean;
 import com.uwei.uwproject.bean.MemberItemBean;
 import com.uwei.uwproject.bean.MemberListBean;
 import com.uwei.uwproject.databinding.FragmentMineBinding;
-import com.uwei.uwproject.view.login.LoginActivity;
+import com.uwei.uwproject.view.login.mvp.LoginActivity;
 import com.uwei.uwproject.view.mine.presenter.impl.MemberPresenter;
 
 import java.util.ArrayList;

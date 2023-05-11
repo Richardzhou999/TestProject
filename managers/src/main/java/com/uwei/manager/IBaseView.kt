@@ -35,9 +35,6 @@ interface IBaseView {
     /*showNoNet*/
     fun showNoNet() {}
 
-    /*showError*/
-    fun showError(content: String?) {}
-
     /*释放dialog资源*/
     fun destroy() {}
 

@@ -3,7 +3,7 @@ package com.uwei.uwproject.view.mine.presenter.impl;
 import androidx.annotation.NonNull;
 
 import com.uwei.base.mvp.BasePresenter;
-import com.uwei.commom.network.BasicResponse;
+import com.uwei.manager.BasicResponse;
 import com.uwei.commom.rx.DefaultBackCallBack;
 import com.uwei.commom.utils.SharedPrefUtils;
 import com.uwei.uwproject.R;

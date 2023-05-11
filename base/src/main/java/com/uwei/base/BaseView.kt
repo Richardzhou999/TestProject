@@ -1,4 +1,4 @@
-package com.uwei.commom.network
+package com.uwei.base
 
 /**
  * @author : XeonYu

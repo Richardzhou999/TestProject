@@ -29,6 +29,10 @@ android {
 dependencies {
 
     implementation rootProject.ext.dependencies["appcompat-v7"]
+    api rootProject.ext.dependencies["retrofit"]
+    api rootProject.ext.dependencies["gson"]
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
+    api rootProject.ext.dependencies["lifecycle-common"]
+    api rootProject.ext.dependencies["lifecycle-annotation"]
+    api rootProject.ext.dependencies["lifecycle-viewmodel"]
 }

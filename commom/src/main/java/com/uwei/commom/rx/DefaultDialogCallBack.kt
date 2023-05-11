@@ -3,10 +3,10 @@ package com.uwei.commom.rx
 import android.accounts.NetworkErrorException
 import android.content.Context
 import com.uwei.manager.IBaseView
-import com.uwei.commom.network.BasicResponse
 import com.uwei.commom.utils.NetworkUtils
 import com.uwei.commom.utils.ToastUtil
 import com.uwei.manager.LoadView
+import com.uwei.manager.BasicResponse
 import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.disposables.Disposable
 import java.net.ConnectException
@@ -47,12 +47,6 @@ abstract class DefaultDialogCallBack<T>(context: Context,view: IBaseView): Obser
                 onSuccessEmpty()
             }
             response.data?.let {
-                onSuccess(it)
-            }
-            response.result?.let {
-                onSuccess(it)
-            }
-            response.datas?.let {
                 onSuccess(it)
             }
         }else{

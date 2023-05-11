@@ -6,6 +6,7 @@ import com.github.richard.gson.GsonSpeaker
 import com.github.richard.runtime.rx_cache3.RxCache3
 import com.rxjava.rxlife.lifeOnMain
 import com.uwei.commom.network.RetrofitManager.getRetrofit3
+import com.uwei.commom.network.RetrofitManager.getRetrofitFlow
 import com.uwei.commom.network.rxjava3.RetryWithDelay
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -19,8 +20,6 @@ import java.io.File
  * @Date 2022/8/13 15:25
  */
 object RxHelper {
-
-
 
     fun <T> createSubscribe(observable: Observable<T>?,
                             subscriber: Observer<T>?,
@@ -80,6 +79,10 @@ object RxHelper {
 //        }
     //   }
 
+    fun <T> getApiServer(context: Context, url: String, param: String, clazz: Class<T>): T? =
+         getRetrofit3(context, url, param, true).create(clazz)
+             ?: throw RuntimeException("Api service is null!")
+
     fun <T> getApiServer(context: Context, url: String, clazz: Class<T>, isCache: Boolean = false): T {
         return getRetrofit3(context, url,null,null,null,null,isCache).create(clazz)
     }
@@ -94,6 +97,10 @@ object RxHelper {
             headerMap, paramMap, isCache).create(clazz)
     }
 
+
+    fun <T> getApiServerFlow(context: Context, url: String, param: String, clazz: Class<T>): T =
+       getRetrofitFlow(context, url, param, true).create(clazz)
+           ?: throw RuntimeException("Api service is null!")
 
 
 

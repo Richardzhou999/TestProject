@@ -3,7 +3,7 @@ package com.uwei.uwproject.view.login;
 import com.github.richard.core.EvictDynamicKey;
 import com.github.richard.runtime.rx_cache3.internal.DynamicKey;
 import com.github.richard.runtime.rx_cache3.internal.LifeCache;
-import com.uwei.commom.network.BasicResponse;
+import com.uwei.manager.BasicResponse;
 import java.util.concurrent.TimeUnit;
 import io.reactivex.rxjava3.core.Observable;
 

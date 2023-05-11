@@ -2,6 +2,9 @@ package com.uwei.uwproject.view.login.model;
 
 import androidx.lifecycle.LifecycleOwner;
 
+import com.github.richard.core.EvictDynamicKey;
+import com.github.richard.runtime.rx_cache3.internal.DynamicKey;
+import com.uwei.base.mvp.BaseModel;
 import com.google.gson.Gson;
 import com.uwei.base.mvp.IBaseModel;
 import com.uwei.commom.rx.DefaultBackCallBack;
@@ -12,7 +15,7 @@ import com.uwei.uwproject.base.CardApplication;
 import com.uwei.uwproject.constant.Constant;
 import com.uwei.uwproject.network.ApiService;
 import com.uwei.uwproject.view.login.LoginCacheProviders;
-import com.uwei.uwproject.view.login.LoginContract;
+import com.uwei.uwproject.view.login.mvp.LoginContract;
 
 import java.util.HashMap;
 
@@ -43,16 +46,14 @@ public class LoginModel implements LoginContract.LoginModel, IBaseModel {
     @Override
     public void getVerificationCode(String phone, DefaultBackCallBack callBack, LifecycleOwner owner) {
 
-//        ApiService service = RxHelper.INSTANCE.getApiServer(CardApplication.getContext(), Constant.BASE_URL
-//                ,"Authorization", ApiService.class);
+        ApiService service = RxHelper.INSTANCE.getApiServer(CardApplication.getContext(), Constant.BASE_URL
+                ,"Authorization", ApiService.class);
 
         LoginCacheProviders providers = RxHelper.INSTANCE.createCache(CardApplication.getContext().getExternalCacheDir(),
                         LoginCacheProviders.class);
 
-//        RxHelper.INSTANCE.setCache(providers.getLogin(service.getVerificationCode(phone) ,
-//                new DynamicKey(phone), new EvictDynamicKey(false)),callBack,owner);
+        RxHelper.INSTANCE.setCache(providers.getLogin(service.getVerificationCode(phone) ,
+                new DynamicKey(phone), new EvictDynamicKey(false)),callBack,owner);
 
     }
-
-
 }

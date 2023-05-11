@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.login.LoginActivity">
+    tools:context=".view.login.mvp.LoginActivity">
 
     <TextView
         android:id="@+id/service_password"

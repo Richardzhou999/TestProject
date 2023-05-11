@@ -51,6 +51,20 @@ object ViewBindingUtil {
         var genericSuperclass = genericOwner.javaClass.genericSuperclass
         var superclass = genericOwner.javaClass.superclass
         if(superclass != null){
+            if (genericSuperclass is ParameterizedType) {
+                genericSuperclass.actualTypeArguments.forEach { type ->
+                    if((type as Class<VB>).name.contains("Binding")) {
+                        try {
+                            return block.invoke(type)
+                        } catch (e: NoSuchMethodException) {
+                        } catch (e: ClassCastException) {
+                        } catch (e: InvocationTargetException) {
+                            var tagException: Throwable? = e
+                            while (tagException is InvocationTargetException) {
+                                tagException = e.cause
+                            }
+                            throw tagException
+                                ?: IllegalArgumentException("ViewBinding generic was found, but creation failed.")
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P){
                 if (genericSuperclass is ParameterizedType) {
                     genericSuperclass.actualTypeArguments.forEach { type ->
@@ -76,7 +90,7 @@ object ViewBindingUtil {
     }
 
     private fun withGenericBindingClick(genericOwner: Any, root: View?){
-        genericOwner.javaClass.methods?.let { methods ->
+        genericOwner.javaClass.methods.let { methods ->
             for (method in methods) {
                 if(method.isAnnotationPresent(OnClick::class.java)){
                     if(method.genericReturnType != Void.TYPE){
