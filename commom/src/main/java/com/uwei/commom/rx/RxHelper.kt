@@ -5,6 +5,7 @@ import androidx.lifecycle.LifecycleOwner
 import com.github.richard.gson.GsonSpeaker
 import com.github.richard.runtime.rx_cache3.RxCache3
 import com.rxjava.rxlife.lifeOnMain
+import com.uwei.commom.network.RetrofitManager.getRetrofit2
 import com.uwei.commom.network.RetrofitManager.getRetrofit3
 import com.uwei.commom.network.RetrofitManager.getRetrofitFlow
 import com.uwei.commom.network.rxjava3.RetryWithDelay
@@ -79,27 +80,19 @@ object RxHelper {
 //        }
     //   }
 
-    fun <T> getApiServer(context: Context, url: String, param: String, clazz: Class<T>): T? =
-         getRetrofit3(context, url, param, true).create(clazz)
+    fun <T> getApiServer(context: Context, url: String, param: String, clazz: Class<T>,isCache: Boolean = false): T =
+         getRetrofit2(context, url, param, null,null,
+             null,isCache).create(clazz)
              ?: throw RuntimeException("Api service is null!")
 
-    fun <T> getApiServer(context: Context, url: String, clazz: Class<T>, isCache: Boolean = false): T {
-        return getRetrofit3(context, url,null,null,null,null,isCache).create(clazz)
-    }
+    fun <T> getApiServer(context: Context, url: String, clazz: Class<T>, isCache: Boolean = false): T =
+        getRetrofit3(context, url,null,null,
+            null,null,isCache).create(clazz)?:
+            throw RuntimeException("Api service is null!")
 
 
-    fun <T> getApiServer(context: Context, url: String, tokenName: String?, signName: String?,
-                         headerMap: MutableMap<String,String>?,
-                         paramMap: MutableMap<String,Any>?,
-                         isCache: Boolean = false,
-                         clazz: Class<T>): T {
-        return getRetrofit3(context, url, tokenName,signName,
-            headerMap, paramMap, isCache).create(clazz)
-    }
-
-
-    fun <T> getApiServerFlow(context: Context, url: String, param: String, clazz: Class<T>): T =
-       getRetrofitFlow(context, url, param, true).create(clazz)
+    fun <T> getApiServerFlow(context: Context, url: String, clazz: Class<T>,isCache: Boolean = false): T =
+       getRetrofitFlow(context, url, null, null,null,null,isCache).create(clazz)
            ?: throw RuntimeException("Api service is null!")
 
 

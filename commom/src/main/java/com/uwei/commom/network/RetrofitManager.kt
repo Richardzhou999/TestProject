@@ -51,41 +51,39 @@ object RetrofitManager {
         return builder.build()
     }
 
-    fun getRetrofit2(context: Context, url: String,tokenName: String,isCache: Boolean = false): Retrofit{
+    fun getRetrofit2(context: Context, url: String,tokenName: String?,signName: String?,
+                     headerMap: MutableMap<String,String>?,
+                     paramMap: MutableMap<String,Any>?,isCache: Boolean = false): Retrofit{
         return Retrofit.Builder()
                 .addConverterFactory(JXConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .baseUrl(url)
-                .client(getOkHttpClient(context,tokenName,null,null,isCache))
+                .client(getOkHttpClient(context,tokenName,signName,headerMap,paramMap,isCache))
                 .build()
     }
 
-    fun getRetrofit3(context: Context, url: String, tokenName: String, isCache: Boolean = false): Retrofit{
+    fun getRetrofit3(context: Context, url: String,tokenName: String?,signName: String?,
+                     headerMap: MutableMap<String,String>?,
+                     paramMap: MutableMap<String,Any>?, isCache: Boolean = false): Retrofit{
         return Retrofit.Builder()
             .addConverterFactory(JXConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .baseUrl(url)
-            .client(getOkHttpClient(context,tokenName,null,null,isCache))
+            .client(getOkHttpClient(context,tokenName,signName,headerMap,paramMap,isCache))
             .build()
     }
 
-    fun getRetrofitFlow(context: Context, url: String, tokenName: String, isCache: Boolean = false): Retrofit{
+    fun getRetrofitFlow(context: Context, url: String, tokenName: String?,signName: String?,
+                        headerMap: MutableMap<String,String>?,
+                        paramMap: MutableMap<String,Any>?, isCache: Boolean = false): Retrofit{
         return Retrofit.Builder()
                 .addConverterFactory(JXConverterFactory.create())
                 .addCallAdapterFactory(FlowAdapterFactory.create(true))
                 .baseUrl(url)
-                .client(getOkHttpClient(context,tokenName,null,null,isCache))
+                .client(getOkHttpClient(context,tokenName,signName,headerMap,paramMap,isCache))
                 .build()
     }
 
-    fun getRetrofit3(context: Context, url: String, headerMap: MutableMap<String,String>?,
-                     paramMap: MutableMap<String,Any>?, isCache: Boolean = false): Retrofit{
-        return Retrofit.Builder()
-                .addConverterFactory(JXConverterFactory.create())
-                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-                .baseUrl(url)
-                .client(getOkHttpClient(context,"",headerMap,paramMap,isCache))
-                .build()
-    }
+
 
 }
