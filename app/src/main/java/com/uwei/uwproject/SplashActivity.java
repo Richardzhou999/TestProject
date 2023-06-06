@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-import com.uwei.uwproject.view.login.mvp.LoginActivity;
+import com.uwei.uwproject.view.login.mvp.LoginMvpActivity;
 import com.uwei.uwproject.view.login.mvvm.Login2Activity;
 
 public class SplashActivity extends AppCompatActivity {
@@ -40,7 +40,7 @@ public class SplashActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 123) {
-            Intent intent = new Intent(SplashActivity.this,LoginActivity.class);
+            Intent intent = new Intent(SplashActivity.this, LoginMvpActivity.class);
             startActivity(intent);
             finish();
         }

@@ -31,8 +31,14 @@ abstract class DefaultBackCallBack<T>(context: Context): Observer<BasicResponse<
     override fun onNext(response: BasicResponse<T>) {
 
         if(response.isSuccess()){
-            if(response.data == null){
+            if(response.data == null && response.result == null && response.datas == null){
                 onSuccessEmpty()
+            }
+            response.data?.let {
+                onSuccess(it)
+            }
+            response.result?.let {
+                onSuccess(it)
             }
             response.data?.let {
                 onSuccess(it)

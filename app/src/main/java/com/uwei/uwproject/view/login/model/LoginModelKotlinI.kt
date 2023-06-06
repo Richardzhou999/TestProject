@@ -3,7 +3,6 @@ package com.uwei.uwproject.view.login.model
 import androidx.lifecycle.LifecycleOwner
 import com.uwei.commom.rx.RxHelper.createCache
 import com.uwei.base.mvp.IBaseModel
-import com.uwei.uwproject.view.login.LoginContract
 import com.uwei.commom.rx.DefaultDialogCallBack
 import com.uwei.uwproject.base.CardApplication
 import okhttp3.RequestBody
@@ -11,6 +10,7 @@ import com.uwei.commom.rx.DefaultBackCallBack
 import com.uwei.uwproject.view.login.LoginCacheProviders
 import com.google.gson.Gson
 import com.uwei.commom.utils.sha1
+import com.uwei.uwproject.view.login.mvp.LoginContract
 import java.util.HashMap
 
 /**

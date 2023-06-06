@@ -18,7 +18,7 @@ import com.uwei.manager.IBaseView
  * @Author Charlie
  * @Date 2022/7/19 14:12
  */
-abstract class UWBaseFragment<VB : ViewBinding>: Fragment(), FragmentBinding<VB> by FragmentBindingDelegate()
+abstract class BaseMvpFragment<VB : ViewBinding>: Fragment(), FragmentBinding<VB> by FragmentBindingDelegate()
     , IBaseView {
 
     private var mProxyFragment: ProxyFragment? = null

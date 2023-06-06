@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.uwei.uwproject.R;
-import com.uwei.uwproject.view.login.mvp.LoginActivity;
+import com.uwei.uwproject.view.login.mvp.LoginMvpActivity;
 
 public class CardActivationActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -61,7 +61,7 @@ public class CardActivationActivity extends AppCompatActivity implements View.On
     public void onClick(View v) {
         Intent intent = null;
         if(writeStatus){
-            intent = new Intent(CardActivationActivity.this, LoginActivity.class);
+            intent = new Intent(CardActivationActivity.this, LoginMvpActivity.class);
         }else {
             
         }

@@ -1,12 +1,13 @@
 package com.uwei.uwproject.view.login.mvp;
 
+import android.content.Intent;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 
 
-import com.uwei.base.UWBaseActivity;
+import com.uwei.base.BaseMvpActivity;
 import com.uwei.base.mvp.InjectPresenter;
 
 import com.uwei.base.viewbinding.OnClick;
@@ -24,13 +25,11 @@ import com.uwei.uwproject.view.login.mvp.presenter.LoginPresenter;
  * @Date 2022/7/20 15:12
  * 登录-查询
  */
-public class LoginActivity extends UWBaseActivity<ActivityLoginBinding> implements LoginContract.LoginView {
+public class LoginMvpActivity extends BaseMvpActivity<ActivityLoginBinding> implements LoginContract.LoginView {
 
 
     @InjectPresenter
     private LoginPresenter presenter;
-
-    private Object[] value = new Object[5];
 
     @Override
     protected void initData() {
@@ -87,7 +86,7 @@ public class LoginActivity extends UWBaseActivity<ActivityLoginBinding> implemen
         switch (v.getId()){
             case R.id.verify_code:{
                 if(!TextUtils.isEmpty(binding.loginNumber.getText().toString())){
-                    VerifyCodeTimeDown timeDown = new VerifyCodeTimeDown(LoginActivity.this
+                    VerifyCodeTimeDown timeDown = new VerifyCodeTimeDown(LoginMvpActivity.this
                             ,60000,1000);
                     timeDown.setTextView(binding.llLoginPhone.verifyCode);
                     timeDown.setBackGroundColor(R.drawable.bg_no_code_text,R.drawable.bg_code_text);
@@ -95,7 +94,7 @@ public class LoginActivity extends UWBaseActivity<ActivityLoginBinding> implemen
                     presenter.getVerificationCode(binding.loginNumber.getText().toString());
                     break;
                 }else {
-                    ToastUtil.INSTANCE.showText(LoginActivity.this,getString(R.string.mobile_empty));
+                    ToastUtil.INSTANCE.showText(LoginMvpActivity.this,getString(R.string.mobile_empty));
                 }
 
             }
@@ -109,31 +108,21 @@ public class LoginActivity extends UWBaseActivity<ActivityLoginBinding> implemen
                 binding.llLoginService.getRoot().setVisibility(View.VISIBLE);
                 break;
             }
-            case R.id.login_service_forget:{
-                break;
-            }
-            case R.id.login_phone_forget:{
-                break;
-            }
-
             case R.id.login_service_btn:{
                 if(PhoneUtils.isMobilPhone(binding.loginNumber.getText().toString())){
-
-
                     presenter.login(binding.loginNumber.getText().toString(),
                             binding.llLoginService.loginPassword.getText().toString());
                 }else {
-                    ToastUtil.INSTANCE.showText(LoginActivity.this,getString(R.string.mobile_format));
+                    ToastUtil.INSTANCE.showText(LoginMvpActivity.this,getString(R.string.mobile_format));
                 }
                 break;
             }
             case R.id.login_phone_btn:{
                 if(PhoneUtils.isMobilPhone(binding.loginNumber.getText().toString())){
-
                     presenter.login(binding.loginNumber.getText().toString(),
                             binding.llLoginPhone.loginCode.getText().toString());
                 }else {
-                    ToastUtil.INSTANCE.showText(LoginActivity.this,getString(R.string.mobile_format));
+                    ToastUtil.INSTANCE.showText(LoginMvpActivity.this,getString(R.string.mobile_format));
                 }
                 break;
             }
@@ -143,8 +132,7 @@ public class LoginActivity extends UWBaseActivity<ActivityLoginBinding> implemen
 
     @Override
     public void intoView(int index,double value) {
-       // startActivity(new Intent(LoginActivity.this,MainActivity.class));
-
+        startActivity(new Intent(LoginMvpActivity.this, MainActivity.class));
     }
 
 }

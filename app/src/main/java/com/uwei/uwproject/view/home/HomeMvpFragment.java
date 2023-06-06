@@ -1,6 +1,5 @@
 package com.uwei.uwproject.view.home;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.jaeger.library.StatusBarUtil;
-import com.uwei.base.UWBaseFragment;
+import com.uwei.base.BaseMvpFragment;
 import com.uwei.commom.utils.SharedPrefUtils;
 import com.uwei.uwproject.R;
 import com.uwei.uwproject.databinding.FragmentHomeBinding;
@@ -22,7 +21,7 @@ import com.uwei.uwproject.databinding.FragmentHomeBinding;
  * @Date 2022/7/19 11:21
  * 首页
  */
-public class HomeFragment extends UWBaseFragment<FragmentHomeBinding> implements View.OnClickListener {
+public class HomeMvpFragment extends BaseMvpFragment<FragmentHomeBinding> implements View.OnClickListener {
 
     private TextView loginInto;
     private ImageView into,service;

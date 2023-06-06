@@ -5,7 +5,7 @@ import android.content.Context
 import com.uwei.manager.IBaseView
 import com.uwei.commom.utils.NetworkUtils
 import com.uwei.commom.utils.ToastUtil
-import com.uwei.manager.LoadView
+import com.uwei.manager.LoadDialog
 import com.uwei.manager.BasicResponse
 import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.disposables.Disposable
@@ -21,12 +21,12 @@ abstract class DefaultDialogCallBack<T>(context: Context,view: IBaseView): Obser
 
     private var mContext: Context? = null
     private var view: IBaseView? = null
-    private var loadView: LoadView
+    private var loadDialog: LoadDialog
 
     init {
         mContext = context
         this.view = view
-        loadView = LoadView(context,"")
+        loadDialog = LoadDialog(context,"")
     }
 
     override fun onSubscribe(d: Disposable) {
@@ -37,14 +37,20 @@ abstract class DefaultDialogCallBack<T>(context: Context,view: IBaseView): Obser
             d.dispose()
             return
         }
-        loadView.show()
+        loadDialog.show()
     }
 
     override fun onNext(response: BasicResponse<T>) {
-        loadView.dismiss()
-        if(response.success){
+        loadDialog.dismiss()
+        if(response.isSuccess()){
             if(response.data == null && response.result == null && response.datas == null){
                 onSuccessEmpty()
+            }
+            response.data?.let {
+                onSuccess(it)
+            }
+            response.result?.let {
+                onSuccess(it)
             }
             response.data?.let {
                 onSuccess(it)
@@ -55,7 +61,7 @@ abstract class DefaultDialogCallBack<T>(context: Context,view: IBaseView): Obser
     }
 
     override fun onError(throwable: Throwable) {
-        loadView.dismiss()
+        loadDialog.dismiss()
         if (throwable is ConnectException ||
             throwable is TimeoutException ||
             throwable is NetworkErrorException ||

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/meal_bg"
-    tools:context=".view.payment.PayDetailActivity">
+    tools:context=".view.payment.PayDetailMvpActivity">
 
     <include layout="@layout/activity_base"/>
 

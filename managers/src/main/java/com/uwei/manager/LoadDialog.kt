@@ -7,9 +7,9 @@ import android.os.Bundle
 import android.view.View
 
 /**
- * 带提示内容的进度框
+ * 带提示内容的加载框
  */
-class LoadView(context: Context, private val mContent: String) :Dialog(context, R.style.DialogStyle) {
+class LoadDialog(context: Context, private val mContent: String) :Dialog(context, R.style.DialogStyle) {
 
     private lateinit var mProgressView: ProgressImageView
     private lateinit var mTvContent: TextView
@@ -19,7 +19,7 @@ class LoadView(context: Context, private val mContent: String) :Dialog(context, 
         setContentView(R.layout.dialog_progress_content)
         mProgressView = findViewById(R.id.view_list_empty_progress)
         mTvContent = findViewById(R.id.tv_content)
-        mTvContent.setText(mContent)
+        mTvContent.text = mContent
     }
 
     override fun onAttachedToWindow() {

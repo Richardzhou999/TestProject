@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 
 import com.uwei.base.mvp.IBaseModel;
 import com.uwei.commom.utils.SharedPrefUtils;
-import com.uwei.uwproject.base.BaseActivity;
+import com.uwei.uwproject.base.BaseMvpActivity;
 import com.uwei.uwproject.bean.PaymentBean;
 import com.uwei.uwproject.constant.Constant;
 
@@ -15,7 +15,7 @@ import com.uwei.uwproject.constant.Constant;
 public class PayModelImplI implements PayModel, IBaseModel {
 
 
-    public PayModelImplI(BaseActivity activity) {
+    public PayModelImplI(BaseMvpActivity activity) {
     }
 
     @Override

@@ -32,8 +32,8 @@ dependencies {
     api rootProject.ext.dependencies["logging-interceptor"]
 
     //rx
-    implementation rootProject.ext.dependencies["rxjava2"]
-    implementation  rootProject.ext.dependencies["rxjava3"]
+    api rootProject.ext.dependencies["rxjava2"]
+    api  rootProject.ext.dependencies["rxjava3"]
     implementation rootProject.ext.dependencies["adapter-rxjava"]
     implementation rootProject.ext.dependencies["adapter-rxjava3"]
     implementation rootProject.ext.dependencies["rxAndroid2"]

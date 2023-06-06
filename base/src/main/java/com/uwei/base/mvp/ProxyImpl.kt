@@ -42,7 +42,6 @@ open class ProxyImpl(view: IBaseView?) : IProxy{
                     throw RuntimeException("SubClass must extends Class:BasePresenter")
                 }
             }
-           // val dialog = field.getAnnotation()
         }
     }
 

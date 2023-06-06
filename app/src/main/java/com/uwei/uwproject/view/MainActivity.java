@@ -15,23 +15,25 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-import com.uwei.base.UWBaseFragment;
+import com.uwei.base.BaseMvpActivity;
+import com.uwei.base.BaseMvpFragment;
 import com.uwei.commom.utils.SharedPrefUtils;
 import com.uwei.uwproject.R;
-import com.uwei.uwproject.view.home.HomeFragment;
-import com.uwei.uwproject.view.mine.MineFragment;
+import com.uwei.uwproject.databinding.ActivityMainBinding;
+import com.uwei.uwproject.view.home.HomeMvpFragment;
+import com.uwei.uwproject.view.mine.MineMvpFragment;
 import com.uwei.uwproject.view.payment.model.IModel;
 
 /**
  * @Author Charlie
  * @Date 2022/7/19 11:21
  */
-public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener,
-        IModel {
+public class MainActivity extends BaseMvpActivity<ActivityMainBinding>
+        implements NavigationBarView.OnItemSelectedListener, IModel {
 
     private long mExitTime;
-    private BottomNavigationView navView;
-    private UWBaseFragment homeFragment, mineFragment;
+    private BaseMvpFragment homeFragment, mineFragment;
+
 
 
     @Override
@@ -42,15 +44,22 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
 
     }
 
-    private void initFragment() {
+    @Override
+    protected void initData() {
 
+    }
+
+    @Override
+    protected void initEvent() {
+        binding.navView.setItemIconTintList(null);
+        binding.navView.setOnItemSelectedListener(this);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (homeFragment == null) {
-            homeFragment = new HomeFragment();
+            homeFragment = new HomeMvpFragment();
             transaction.add(R.id.nav_host_fragment, homeFragment);
         }
         if (mineFragment == null) {
-            mineFragment = new MineFragment();
+            mineFragment = new MineMvpFragment();
             transaction.add(R.id.nav_host_fragment, mineFragment);
         }
         transaction.hide(homeFragment);
@@ -59,15 +68,15 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         transaction.commit();
     }
 
+    private void initFragment() {
+
+
+    }
+
     protected void initView() {
 
-        navView = findViewById(R.id.nav_view);
 
 
-        navView.setItemIconTintList(null);
-        navView.setOnItemSelectedListener(this);
-
-        initFragment();
 
 
 
@@ -115,14 +124,14 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         switch (item.getItemId()){
             case R.id.navigation_home:{
                 item.setIcon(ContextCompat.getDrawable(MainActivity.this,R.mipmap.icon_home_check));
-                homeFragment = new HomeFragment();
+                homeFragment = new HomeMvpFragment();
                 transaction.add(R.id.nav_host_fragment,homeFragment);
                 transaction.show(homeFragment);
                 break;
             }
             case R.id.navigation_mine:{
                 item.setIcon(ContextCompat.getDrawable(MainActivity.this,R.mipmap.icon_mine_check));
-                mineFragment = new MineFragment();
+                mineFragment = new MineMvpFragment();
                 transaction.add(R.id.nav_host_fragment,mineFragment);
                 transaction.show(mineFragment);
                 break;
@@ -135,8 +144,8 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
     }
 
     private void resetDefaultIcon() {
-        MenuItem home =  navView.getMenu().findItem(R.id.navigation_home);
-        MenuItem mine =  navView.getMenu().findItem(R.id.navigation_mine);
+        MenuItem home =  binding.navView.getMenu().findItem(R.id.navigation_home);
+        MenuItem mine =  binding.navView.getMenu().findItem(R.id.navigation_mine);
         home.setIcon(ContextCompat.getDrawable(MainActivity.this,R.mipmap.icon_home));
         mine.setIcon(ContextCompat.getDrawable(MainActivity.this,R.mipmap.icon_mine));
     }

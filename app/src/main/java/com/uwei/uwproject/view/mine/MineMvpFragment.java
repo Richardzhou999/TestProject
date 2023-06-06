@@ -1,15 +1,13 @@
 package com.uwei.uwproject.view.mine;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.view.View;
 
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.uwei.base.UWBaseFragment;
+import com.uwei.base.BaseMvpFragment;
 import com.uwei.base.mvp.InjectPresenter;
 import com.uwei.base.viewbinding.OnClick;
 import com.uwei.commom.utils.SharedPrefUtils;
@@ -19,7 +17,7 @@ import com.uwei.uwproject.bean.MemberBean;
 import com.uwei.uwproject.bean.MemberItemBean;
 import com.uwei.uwproject.bean.MemberListBean;
 import com.uwei.uwproject.databinding.FragmentMineBinding;
-import com.uwei.uwproject.view.login.mvp.LoginActivity;
+import com.uwei.uwproject.view.login.mvp.LoginMvpActivity;
 import com.uwei.uwproject.view.mine.presenter.impl.MemberPresenter;
 
 import java.util.ArrayList;
@@ -29,7 +27,7 @@ import java.util.ArrayList;
  * @Date 2022/7/19 11:21
  * 我的
  */
-public class MineFragment extends UWBaseFragment<FragmentMineBinding> implements MineContract.IMemberView {
+public class MineMvpFragment extends BaseMvpFragment<FragmentMineBinding> implements MineContract.IMemberView {
 
     @InjectPresenter
     private MemberPresenter presenter;
@@ -82,7 +80,7 @@ public class MineFragment extends UWBaseFragment<FragmentMineBinding> implements
 
                 break;
             case R.id.mine_login:
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                Intent intent = new Intent(getActivity(), LoginMvpActivity.class);
                 startActivity(intent);
                 break;
             default:break;

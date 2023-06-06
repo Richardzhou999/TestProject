@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 import com.uwei.commom.utils.AppInfoUtils;
 import com.uwei.commom.utils.ToastUtil;
 import com.uwei.uwproject.R;
-import com.uwei.uwproject.base.BaseActivity;
+import com.uwei.uwproject.base.BaseMvpActivity;
 import com.uwei.uwproject.bean.PayDetailBean;
 import com.uwei.uwproject.view.payment.presenter.IView;
 import com.uwei.uwproject.view.payment.presenter.PayPresenter;
@@ -24,7 +24,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 
-public class PayDetailActivity extends BaseActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, IView {
+public class PayDetailMvpActivity extends BaseMvpActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, IView {
 
     private TextView toolbar,title,price,deduction,total;
     private TextView paymentBtn;
@@ -67,7 +67,7 @@ public class PayDetailActivity extends BaseActivity implements View.OnClickListe
         if(payment != null && reduction != 0){
             Glide.with(this)
                     .load(payment.getPicUrl())
-                    .placeholder(ContextCompat.getDrawable(PayDetailActivity.this,R.mipmap.icon_meal))
+                    .placeholder(ContextCompat.getDrawable(PayDetailMvpActivity.this,R.mipmap.icon_meal))
                     .into(mealImage);
             title.setText(payment.getName());
             price.setText(getString(R.string.yuan,payment.getUnitPrice()));
@@ -90,14 +90,14 @@ public class PayDetailActivity extends BaseActivity implements View.OnClickListe
 
 
         if(paymentMode == 0){
-            if(!AppInfoUtils.INSTANCE.isAppInstalled(PayDetailActivity.this,"com.tencent.mm")){
-                ToastUtil.INSTANCE.showText(PayDetailActivity.this,"您当前未安装微信");
+            if(!AppInfoUtils.INSTANCE.isAppInstalled(PayDetailMvpActivity.this,"com.tencent.mm")){
+                ToastUtil.INSTANCE.showText(PayDetailMvpActivity.this,"您当前未安装微信");
 
                 return;
             }
         }else {
-            if(!AppInfoUtils.INSTANCE.isAppInstalled(PayDetailActivity.this,"com.eg.android.AlipayGphone")){
-                ToastUtil.INSTANCE.showText(PayDetailActivity.this,"您当前未安装支付宝");
+            if(!AppInfoUtils.INSTANCE.isAppInstalled(PayDetailMvpActivity.this,"com.eg.android.AlipayGphone")){
+                ToastUtil.INSTANCE.showText(PayDetailMvpActivity.this,"您当前未安装支付宝");
 
                 return;
             }
@@ -108,7 +108,7 @@ public class PayDetailActivity extends BaseActivity implements View.OnClickListe
             presenter.Payment(payment.getId()+"",productId,decimalFormat.format(payment.getUnitPrice())
                     ,payment.getName(),paymentMode);
         }else {
-            ToastUtil.INSTANCE.showText(PayDetailActivity.this,"当前金额不能小于1元");
+            ToastUtil.INSTANCE.showText(PayDetailMvpActivity.this,"当前金额不能小于1元");
 
         }
 
@@ -138,7 +138,7 @@ public class PayDetailActivity extends BaseActivity implements View.OnClickListe
     @Override
     public void payError(String error) {
 
-        ToastUtil.INSTANCE.showText(PayDetailActivity.this,error);
+        ToastUtil.INSTANCE.showText(PayDetailMvpActivity.this,error);
     }
 
 

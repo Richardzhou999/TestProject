@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.uwei.uwproject.view.home.HomeFragment"
+        android:name="com.uwei.uwproject.view.home.HomeMvpFragment"
         tools:layout="@layout/fragment_home" />
 
 
     <fragment
         android:id="@+id/navigation_mine"
-        android:name="com.uwei.uwproject.view.mine.MineFragment"
+        android:name="com.uwei.uwproject.view.mine.MineMvpFragment"
         tools:layout="@layout/fragment_mine" />
 
 

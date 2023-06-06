@@ -6,14 +6,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
 import com.uwei.base.mvvm.BaseViewModel
-import com.uwei.manager.widget.LoadingDialog
+import com.uwei.manager.LoadDialog
+
 import java.lang.reflect.ParameterizedType
 
 abstract class BaseMvvmActivity<VM : BaseViewModel, VB : ViewDataBinding> : AppCompatActivity() {
 
      lateinit var binding: VB
      lateinit var viewModel: VM
-     private var loadingDialog: LoadingDialog? = null
+     private var loadingDialog: LoadDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +30,7 @@ abstract class BaseMvvmActivity<VM : BaseViewModel, VB : ViewDataBinding> : AppC
 
         binding = DataBindingUtil.setContentView(this, getLayoutRes())
         binding.lifecycleOwner = this
-        loadingDialog = LoadingDialog(this)
+        loadingDialog = LoadDialog(this,"")
     }
 
     private fun registerDefUIChange() {

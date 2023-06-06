@@ -39,12 +39,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.payment.PayDetailActivity"
+            android:name=".view.payment.PayDetailMvpActivity"
             android:exported="false" />
         <activity android:name=".view.MainActivity" />
 
         <activity
-            android:name=".view.login.mvp.LoginActivity"
+            android:name=".view.login.mvp.LoginMvpActivity"
             android:exported="true" >
 
         </activity>

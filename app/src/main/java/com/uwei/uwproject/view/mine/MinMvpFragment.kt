@@ -1,14 +1,12 @@
 package com.uwei.brand.card.view.mine
 
-import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
 import android.text.TextUtils
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.uwei.base.UWBaseFragment
+import com.uwei.base.BaseMvpFragment
 import com.uwei.base.viewbinding.OnClick
-import com.uwei.base.viewbinding.listAdapterxx
 
 import com.uwei.commom.utils.SharedPrefUtils
 import com.uwei.commom.utils.SystemUtils.getVersionName
@@ -16,7 +14,6 @@ import com.uwei.uwproject.R
 import com.uwei.uwproject.bean.MemberBean
 import com.uwei.uwproject.bean.MemberListBean
 import com.uwei.uwproject.databinding.FragmentMineBinding
-import com.uwei.uwproject.databinding.ItemMemberBinding
 import com.uwei.uwproject.view.mine.MineAdapter
 import com.uwei.uwproject.view.mine.MineContract
 import com.uwei.uwproject.view.mine.presenter.impl.MemberPresenter
@@ -26,7 +23,7 @@ import com.uwei.uwproject.view.mine.presenter.impl.MemberPresenter
  * @Date 2022/7/19 11:21
  * 我的
  */
-class MinFragment : UWBaseFragment<FragmentMineBinding>(), MineContract.IMemberView {
+class MinMvpFragment : BaseMvpFragment<FragmentMineBinding>(), MineContract.IMemberView {
     private var presenter: MemberPresenter? = null
     private var memberAdapter: MineAdapter? = null
     private val list = ArrayList<MemberListBean>()

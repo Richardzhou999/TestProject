@@ -35,11 +35,6 @@ public class LoginPresenter extends BasePresenter<LoginContract.LoginView, Login
             public void onSuccessEmpty() {}
             @Override
             public void onSuccess(LoginBean response) {
-                //SharedPrefUtils.INSTANCE.put("userId",response.getUserId());
-//                SharedPrefUtils.INSTANCE.put("token",response.getAccesstoken());
-//                SharedPrefUtils.INSTANCE.put("phone", phone);
-//                long time = System.currentTimeMillis() + response.getExpiresIn() * 1000;
-//                SharedPrefUtils.INSTANCE.put("tokenTime",time);
                 getView().intoView(0,0);
             }
 

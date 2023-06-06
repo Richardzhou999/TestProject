@@ -7,7 +7,9 @@ package com.uwei.manager
 data class BasicResponse<T> (
      val msg: String,
      val code: Int,
-     val data: T
+     val data: T,
+     val result: T,
+     val datas: T
 ) :IResponse<T>{
      override fun code() = code
 

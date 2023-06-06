@@ -4,7 +4,6 @@ import androidx.lifecycle.LifecycleOwner;
 
 import com.github.richard.core.EvictDynamicKey;
 import com.github.richard.runtime.rx_cache3.internal.DynamicKey;
-import com.uwei.base.mvp.BaseModel;
 import com.google.gson.Gson;
 import com.uwei.base.mvp.IBaseModel;
 import com.uwei.commom.rx.DefaultBackCallBack;
@@ -47,7 +46,7 @@ public class LoginModel implements LoginContract.LoginModel, IBaseModel {
     public void getVerificationCode(String phone, DefaultBackCallBack callBack, LifecycleOwner owner) {
 
         ApiService service = RxHelper.INSTANCE.getApiServer(CardApplication.getContext(), Constant.BASE_URL
-                ,"Authorization", ApiService.class);
+                , ApiService.class,false);
 
         LoginCacheProviders providers = RxHelper.INSTANCE.createCache(CardApplication.getContext().getExternalCacheDir(),
                         LoginCacheProviders.class);

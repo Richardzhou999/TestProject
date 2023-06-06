@@ -3,27 +3,24 @@ package com.uwei.base
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
 import androidx.viewbinding.ViewBinding
 import com.uwei.base.mvp.ProxyActivity
 import com.uwei.base.viewbinding.ViewBindingUtil
 import com.uwei.manager.IBaseView
-import com.uwei.manager.LoadView
 
 
 /**
  * @Author Charlie
  * @Date 2022/7/19 11:21
  */
-abstract class UWBaseActivity<VB : ViewBinding>: AppCompatActivity() , IBaseView {
+abstract class BaseMvpActivity<VB : ViewBinding>: AppCompatActivity() , IBaseView {
 
     //两次点击按钮之间的间隔，目前为1000ms
     val MIN_CLICK_DELAY_TIME = 1000
